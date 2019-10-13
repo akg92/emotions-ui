@@ -24,8 +24,9 @@ class FileUpload(APIView):
         for file in files:
             full_path = os.path.join(dir, file)
             if not os.path.isdir(full_path):
-                result.append( { 'file_name': full_path })
-        return result
+                result.append( { 'file_name': file })
+        
+        return { 'files': result}
 
 
     def post(self, request, file_name):
@@ -39,19 +40,27 @@ class FileUpload(APIView):
         fs.save(file_name,  ContentFile( base64.b64decode(data)))
         return Response(status= 200)
 
-    def get(self, request, file_name):
+    def get(self, request, file_name = None):
         if(not file_name):
             return self.list_files(request)
         file_name = self.abs_get_file_name(file_name)
         fs = FileSystemStorage()
         obj = fs.open(file_name)
-        response = Response(mimetype='image/jpg')
+        response = Response()
         response.status_code = 200
-        response['Content-Disposition'] = 'attachment; filename={}.pdf'.format(request.GET('name'))
-        response.write( obj.read())
+        #response['Content-Disposition'] = 'attachment; filename={}.jpg'.format(file_name)
+        #response.write("hello")
+        content = b''
+        with open(file_name,'rb') as f:
+            for line in f:
+                content += line
 
+        #obj.close()
+        response = Response( base64.b64encode( content ))
+        return response
     def list_files(self, request):
         files = self.get_file_list()
+        print(files)
         return Response(data = files, status= 200)
 
         
