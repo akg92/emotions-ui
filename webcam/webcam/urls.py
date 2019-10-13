@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from capture.template.upload import FileUpload
+from capture.template.match import Match
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/', FileUpload.as_view() ),
-    path('upload/<str:file_name>', FileUpload.as_view() )
+    path('upload/<str:file_name>', FileUpload.as_view() ),
+    path('match/<str:file_name>', Match.as_view())
 ]

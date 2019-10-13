@@ -1,1 +1,19 @@
-<p>match works!</p>
+<div class ="img-selection">
+    <div>
+      <button (click) = "next()"> Next</button>
+      <button (click) = "prev()"> prev</button>
+    </div>
+
+    <div>
+    <img *ngIf="imgbase64"  src="{{'data:image/jpg;base64,' + imgbase64}}" alt="First slide">
+    </div>
+</div>
+
+<div>
+  <input type="text" (value) = "nsim">
+</div>
+<div class="img-similar">
+    <div *ngIf="similar">
+        <img  *ngFor="let sim of similar"   src="{{'data:image/jpg;base64,' + sim}}" alt="First slide">
+      </div>
+</div>

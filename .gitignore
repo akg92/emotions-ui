@@ -1,3 +1,4 @@
 django
 webcam/frontend/node_modules
 *.pyc
+webcam/data
