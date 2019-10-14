@@ -468,7 +468,7 @@ let MatchComponent = class MatchComponent {
         this.matchLoadUrl = '/match/';
         this.similar = [];
         this.curIndex = 0;
-        this.nsim = 2;
+        this.nsim = 5;
     }
     ngOnInit() {
         //console.log("initlize"+ this.listAllUrl);

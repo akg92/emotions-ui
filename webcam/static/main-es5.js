@@ -940,7 +940,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.matchLoadUrl = '/match/';
         this.similar = [];
         this.curIndex = 0;
-        this.nsim = 2;
+        this.nsim = 5;
       }
 
       var _proto = MatchComponent.prototype;

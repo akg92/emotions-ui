@@ -17,7 +17,7 @@ export class MatchComponent implements OnInit {
   private matchLoadUrl = '/match/';
   private similar = [];
   private curIndex = 0;
-  private nsim = 2;
+  private nsim = 5;
   ngOnInit() {
     //console.log("initlize"+ this.listAllUrl);
     this.http.get(this.listAllUrl).subscribe (res=>{
