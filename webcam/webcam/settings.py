@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jpkmoch9d%i^m#&qyd_4@ymu3&aml)i44!u)b6bbov6x=*pdl-'
 
 os.environ['STORE_DIR'] = './data/'
-
+os.environ['SIM_CSV'] = './data2/similar.csv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -122,3 +122,4 @@ STATICFILES_DIRS= [os.path.join(BASE_DIR, "static")]
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
