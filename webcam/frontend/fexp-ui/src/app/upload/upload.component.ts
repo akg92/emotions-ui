@@ -54,7 +54,7 @@ export class UploadComponent implements OnInit {
     const url = '/upload/' + compFileName + '.jpg';
     this.http.post(url, {content : this.webcamImage.imageAsDataUrl } ).subscribe(
       (msg) => {
-        console.log(msg);
+        //console.log(msg);
       }
     );
   }

@@ -21,22 +21,24 @@ export class MatchComponent implements OnInit {
   ngOnInit() {
     console.log("initlize"+ this.listAllUrl);
     this.http.get(this.listAllUrl).subscribe (res=>{
-      console.log(res);
+      //console.log(res);
       let data = res['files'];
-      console.log("data"+data);
+      //console.log("data"+data);
       // tslint:disable-next-line: align
       for(let i = 0; i < data.length; i++){
         this.imageList.push(data[i]['file_name'] as string);
       }
       
-    }, (err => {console.log(err);}));
+    }, (err => {
+      //console.log(err);
+    }));
   }
 
   private loadImage(){
     const url = this.imageLoadUrl + this.imageList[this.curIndex];
     this.http.get(url).subscribe( (res => {
       this.imgbase64 = res.toString();
-      console.log("img:"+this.imgbase64);
+      //console.log("img:"+this.imgbase64);
     }));
   }
 
@@ -64,7 +66,6 @@ export class MatchComponent implements OnInit {
       files = files.slice(0, n);
       this.similar = new Array<string>(files.length);
       for(let i = 0; i < files.length; i++){
-        
         this.loadImage2(files[i]).subscribe(
           ( res => {this.similar[i] = res.toString();} )
         );

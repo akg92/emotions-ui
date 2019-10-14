@@ -69,7 +69,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class =\"img-selection\">\n    <div>\n      <button (click) = \"next()\"> Next</button>\n      <button (click) = \"prev()\"> prev</button>\n    </div>\n\n    <div>\n    <img *ngIf=\"imgbase64\"  src=\"{{'data:image/jpg;base64,' + imgbase64}}\" alt=\"First slide\">\n    </div>\n</div>\n\n<div>\n  <input type=\"text\" (value) = \"nsim\">\n</div>\n<div class=\"img-similar\">\n    <div *ngIf=\"similar\">\n        <img  *ngFor=\"let sim of similar\"   src=\"{{'data:image/jpg;base64,' + sim}}\" alt=\"First slide\">\n      </div>\n</div>";
+    __webpack_exports__["default"] = "<div class =\"img-selection\">\n    <div>\n      <button (click) = \"next()\"> Next</button>\n      <button (click) = \"prev()\"> prev</button>\n    </div>\n\n    <div>\n    <img *ngIf=\"imgbase64\"  src=\"{{'data:image/jpg;base64,' + imgbase64}}\" alt=\"First slide\">\n    </div>\n</div>\n\n<div>\n  <input type=\"text\" (value) = \"nsim\">\n</div>\n<div class=\"img-similar\">\n    <div *ngIf=\"similar\">\n        <img  *ngFor=\"let sim of similar\"  class =\"img-single\" src=\"{{'data:image/jpg;base64,' + sim}}\" alt=\"First slide\">\n      </div>\n</div>";
     /***/
   },
 
@@ -734,7 +734,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".img-selection {\n  width: 20%;\n  height: 20%;\n}\n\n.img-similat {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NoaWJpbi9Eb3dubG9hZHMvUmVzZWFyY2gvZW1vdGlvbnMtdWkvd2ViY2FtL2Zyb250ZW5kL2ZleHAtdWkvc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxXQUFBO0FDQ0o7O0FEQ0E7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0VKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1zZWxlY3Rpb257XG4gICAgd2lkdGg6IDIwJTtcbiAgICBoZWlnaHQ6IDIwJTtcbn1cbi5pbWctc2ltaWxhdHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59IiwiLmltZy1zZWxlY3Rpb24ge1xuICB3aWR0aDogMjAlO1xuICBoZWlnaHQ6IDIwJTtcbn1cblxuLmltZy1zaW1pbGF0IHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".img-selection {\n  width: 20%;\n  height: 20%;\n}\n\n.img-similar {\n  width: 100%;\n  height: 100%;\n}\n\n.img-single {\n  width: 20%;\n  height: 20%;\n  display: inline-block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NoaWJpbi9Eb3dubG9hZHMvUmVzZWFyY2gvZW1vdGlvbnMtdWkvd2ViY2FtL2Zyb250ZW5kL2ZleHAtdWkvc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxXQUFBO0FDQ0o7O0FEQ0E7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0VKOztBREFBO0VBQ0ksVUFBQTtFQUNBLFdBQUE7RUFDQSxxQkFBQTtBQ0dKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1zZWxlY3Rpb257XG4gICAgd2lkdGg6IDIwJTtcbiAgICBoZWlnaHQ6IDIwJTtcbn1cbi5pbWctc2ltaWxhcntcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG4uaW1nLXNpbmdsZXtcbiAgICB3aWR0aDogMjAlO1xuICAgIGhlaWdodDogMjAlO1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn0iLCIuaW1nLXNlbGVjdGlvbiB7XG4gIHdpZHRoOiAyMCU7XG4gIGhlaWdodDogMjAlO1xufVxuXG4uaW1nLXNpbWlsYXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uaW1nLXNpbmdsZSB7XG4gIHdpZHRoOiAyMCU7XG4gIGhlaWdodDogMjAlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59Il19 */";
     /***/
   },
 
@@ -950,15 +950,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         console.log("initlize" + this.listAllUrl);
         this.http.get(this.listAllUrl).subscribe(function (res) {
-          console.log(res);
-          var data = res['files'];
-          console.log("data" + data); // tslint:disable-next-line: align
+          //console.log(res);
+          var data = res['files']; //console.log("data"+data);
+          // tslint:disable-next-line: align
 
           for (var i = 0; i < data.length; i++) {
             _this.imageList.push(data[i]['file_name']);
           }
-        }, function (err) {
-          console.log(err);
+        }, function (err) {//console.log(err);
         });
       };
 
@@ -967,8 +966,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         var url = this.imageLoadUrl + this.imageList[this.curIndex];
         this.http.get(url).subscribe(function (res) {
-          _this2.imgbase64 = res.toString();
-          console.log("img:" + _this2.imgbase64);
+          _this2.imgbase64 = res.toString(); //console.log("img:"+this.imgbase64);
         });
       };
 
@@ -1143,8 +1141,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         var url = '/upload/' + compFileName + '.jpg';
         this.http.post(url, {
           content: this.webcamImage.imageAsDataUrl
-        }).subscribe(function (msg) {
-          console.log(msg);
+        }).subscribe(function (msg) {//console.log(msg);
         });
       };
 
