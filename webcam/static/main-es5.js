@@ -69,7 +69,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class =\"img-selection\">\n    <div>\n      <button (click) = \"next()\"> Next</button>\n      <button (click) = \"prev()\"> prev</button>\n    </div>\n\n    <div>\n    <img *ngIf=\"imgbase64\"  src=\"{{'data:image/jpg;base64,' + imgbase64}}\" alt=\"First slide\">\n    </div>\n</div>\n\n<div>\n  <input type=\"text\" (value) = \"nsim\">\n</div>\n<div class=\"img-similar\">\n    <div *ngIf=\"similar\">\n        <img  *ngFor=\"let sim of similar\"  class =\"img-single\" src=\"{{'data:image/jpg;base64,' + sim}}\" alt=\"First slide\">\n      </div>\n</div>";
+    __webpack_exports__["default"] = "<div class =\"img-selection\">\n    <div>\n      <button (click) = \"next()\"> Next</button>\n      <button (click) = \"prev()\"> prev</button>\n    </div>\n\n    <div>\n    <img *ngIf=\"imgbase64\"  src=\"{{'data:image/jpg;base64,' + imgbase64}}\" alt=\"First slide\">\n    </div>\n</div>\n\n<div>\n  <input type=\"text\" (input) = \"nsim\">\n</div>\n<div class=\"img-similar\">\n    <div *ngIf=\"similar\">\n        <img  *ngFor=\"let sim of similar\"  class =\"img-single\" src=\"{{'data:image/jpg;base64,' + sim}}\" alt=\"First slide\">\n      </div>\n</div>";
     /***/
   },
 
