@@ -471,7 +471,7 @@ let MatchComponent = class MatchComponent {
         this.nsim = 2;
     }
     ngOnInit() {
-        console.log("initlize" + this.listAllUrl);
+        //console.log("initlize"+ this.listAllUrl);
         this.http.get(this.listAllUrl).subscribe(res => {
             //console.log(res);
             let data = res['files'];
@@ -512,6 +512,7 @@ let MatchComponent = class MatchComponent {
             const n = Math.min(this.nsim, files.length);
             files = files.slice(0, n);
             this.similar = new Array(files.length);
+            console.log(files);
             for (let i = 0; i < files.length; i++) {
                 this.loadImage2(files[i]).subscribe((res => { this.similar[i] = res.toString(); }));
             }
@@ -618,11 +619,11 @@ let UploadComponent = class UploadComponent {
         this.nextWebcam.next(directionOrDeviceId);
     }
     handleImage(webcamImage) {
-        console.info('received webcam image', webcamImage);
+        //console.info('received webcam image', webcamImage);
         this.webcamImage = webcamImage;
     }
     cameraWasSwitched(deviceId) {
-        console.log('active device: ' + deviceId);
+        //console.log('active device: ' + deviceId);
         this.deviceId = deviceId;
     }
     get triggerObservable() {

@@ -19,7 +19,7 @@ export class MatchComponent implements OnInit {
   private curIndex = 0;
   private nsim = 2;
   ngOnInit() {
-    console.log("initlize"+ this.listAllUrl);
+    //console.log("initlize"+ this.listAllUrl);
     this.http.get(this.listAllUrl).subscribe (res=>{
       //console.log(res);
       let data = res['files'];
@@ -65,6 +65,7 @@ export class MatchComponent implements OnInit {
       const n = Math.min(this.nsim, files.length);
       files = files.slice(0, n);
       this.similar = new Array<string>(files.length);
+      console.log(files);
       for(let i = 0; i < files.length; i++){
         this.loadImage2(files[i]).subscribe(
           ( res => {this.similar[i] = res.toString();} )

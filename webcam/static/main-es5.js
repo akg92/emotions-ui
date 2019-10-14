@@ -948,7 +948,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _proto.ngOnInit = function ngOnInit() {
         var _this = this;
 
-        console.log("initlize" + this.listAllUrl);
+        //console.log("initlize"+ this.listAllUrl);
         this.http.get(this.listAllUrl).subscribe(function (res) {
           //console.log(res);
           var data = res['files']; //console.log("data"+data);
@@ -996,6 +996,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var n = Math.min(_this3.nsim, files.length);
           files = files.slice(0, n);
           _this3.similar = new Array(files.length);
+          console.log(files);
 
           var _loop = function _loop(i) {
             _this3.loadImage2(files[i]).subscribe(function (res) {
@@ -1161,12 +1162,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       _proto2.handleImage = function handleImage(webcamImage) {
-        console.info('received webcam image', webcamImage);
+        //console.info('received webcam image', webcamImage);
         this.webcamImage = webcamImage;
       };
 
       _proto2.cameraWasSwitched = function cameraWasSwitched(deviceId) {
-        console.log('active device: ' + deviceId);
+        //console.log('active device: ' + deviceId);
         this.deviceId = deviceId;
       };
 
