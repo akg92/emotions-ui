@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<nav class=\"navbar navbar-expand-sm bg-light\">\n    <div class=\"container-fluid\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a routerLink=\"upload\" class=\"nav-link\" routerLinkActive=\"active\">\n            Add images\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"match\" class=\"nav-link\" routerLinkActive=\"active\">\n            Check similarity\n          </a>\n        </li> \n      </ul>\n    </div>\n  </nav>\n  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<nav class=\"navbar navbar-expand-sm bg-light\">\n    <div class=\"container-fluid\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a routerLink=\"upload\" class=\"nav-link\" routerLinkActive=\"active\">\n            Add images\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"match\" class=\"nav-link\" routerLinkActive=\"active\">\n            Check similarity\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"select\" class=\"nav-link\" routerLinkActive=\"active\">\n            Select Person\n          </a>\n        </li> \n \n      </ul>\n    </div>\n  </nav>\n  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>");
 
 /***/ }),
 
@@ -46,6 +46,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class =\"img-selection\">\n    <div>\n      <button (click) = \"next()\"> Next</button>\n      <button (click) = \"prev()\"> prev</button>\n    </div>\n\n    <div>\n    <img *ngIf=\"imgbase64\"  src=\"{{'data:image/jpg;base64,' + imgbase64}}\" alt=\"First slide\">\n    </div>\n</div>\n\n<div>\n  <input type=\"text\" (input) = \"nsim\">\n</div>\n<div class=\"img-similar\">\n    <div *ngIf=\"similar\">\n        <img  *ngFor=\"let sim of similar\"  class =\"img-single\" src=\"{{'data:image/jpg;base64,' + sim}}\" alt=\"First slide\">\n      </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/select/select.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/select/select.component.html ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mdb-carousel  class=\"carousel-multi-item multi-animation\" \n              [animation]=\"'slide'\">\n  <mdb-carousel-item *ngFor=\"let item of slides; let i = index\">\n    <div class=\"col-md-4\" [ngClass]=\"{'d-none d-md-block': cardIndex !== 0}\"\n         *ngFor=\"let card of item; let cardIndex = index\">\n      <mdb-card class=\"my-1\">\n        <mdb-card-img [src]=\"card.img\" alt=\"Card image cap\"></mdb-card-img>\n        <button class=\"btn btn-primary\" (click) = \"select(card)\">Select</button>\n      </mdb-card>\n    </div>\n  </mdb-carousel-item>\n</mdb-carousel>");
 
 /***/ }),
 
@@ -306,6 +319,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _upload_upload_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./upload/upload.component */ "./src/app/upload/upload.component.ts");
 /* harmony import */ var _match_match_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./match/match.component */ "./src/app/match/match.component.ts");
+/* harmony import */ var _select_select_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./select/select.component */ "./src/app/select/select.component.ts");
+
 
 
 
@@ -319,6 +334,10 @@ const routes = [
     {
         path: 'match',
         component: _match_match_component__WEBPACK_IMPORTED_MODULE_4__["MatchComponent"]
+    },
+    {
+        path: 'select',
+        component: _select_select_component__WEBPACK_IMPORTED_MODULE_5__["SelectComponent"]
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -397,6 +416,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _match_match_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./match/match.component */ "./src/app/match/match.component.ts");
 /* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm2015/ngx-webcam.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _select_select_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./select/select.component */ "./src/app/select/select.component.ts");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm2015/angular-bootstrap-md.js");
+
+
 
 
 
@@ -413,13 +436,15 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
             _upload_upload_component__WEBPACK_IMPORTED_MODULE_5__["UploadComponent"],
-            _match_match_component__WEBPACK_IMPORTED_MODULE_6__["MatchComponent"]
+            _match_match_component__WEBPACK_IMPORTED_MODULE_6__["MatchComponent"],
+            _select_select_component__WEBPACK_IMPORTED_MODULE_9__["SelectComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             ngx_webcam__WEBPACK_IMPORTED_MODULE_7__["WebcamModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
+            angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["MDBBootstrapModule"].forRoot()
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -529,6 +554,105 @@ MatchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./match.component.scss */ "./src/app/match/match.component.scss")).default]
     })
 ], MatchComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/select/select.component.scss":
+/*!**********************************************!*\
+  !*** ./src/app/select/select.component.scss ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlbGVjdC9zZWxlY3QuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/select/select.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/select/select.component.ts ***!
+  \********************************************/
+/*! exports provided: SelectComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectComponent", function() { return SelectComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let SelectComponent = class SelectComponent {
+    constructor(renderer, http) {
+        this.renderer = renderer;
+        this.http = http;
+        this.cards = [
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+        ];
+        this.slides = [[]];
+    }
+    chunk(arr, chunkSize) {
+        let R = [];
+        for (let i = 0, len = arr.length; i < len; i += chunkSize) {
+            R.push(arr.slice(i, i + chunkSize));
+        }
+        return R;
+    }
+    ngOnInit() {
+        // this.cards = [];
+        this.slides = this.chunk(this.cards, 5);
+        this.http.get('/select/').subscribe(res => {
+            let data = res['files'];
+            for (let i = 0; i < data.length; i++) {
+                this.cards.push({ 'img': data[i]['file_name'] });
+            }
+            this.slides = this.chunk(this.cards, 5);
+        }, err => {
+            console.log(err);
+        });
+    }
+    select(card) {
+        const fileNames = card['img'].split('/');
+        const fileName = fileNames[fileNames.length - 1];
+        console.log(fileName);
+        this.http.post('/select/' + fileName, {}).subscribe(res => {
+            console.log("Success");
+        });
+    }
+    ngAfterViewInit() {
+        const buttons = document.querySelectorAll('.btn-floating');
+        buttons.forEach((el) => {
+            this.renderer.removeClass(el, 'btn-floating');
+            this.renderer.addClass(el, 'px-5');
+            this.renderer.addClass(el.firstElementChild, 'fa-3x');
+        });
+    }
+};
+SelectComponent.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+SelectComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-select',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./select.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/select/select.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./select.component.scss */ "./src/app/select/select.component.scss")).default]
+    })
+], SelectComponent);
 
 
 

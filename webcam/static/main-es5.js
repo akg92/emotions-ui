@@ -49,7 +49,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<nav class=\"navbar navbar-expand-sm bg-light\">\n    <div class=\"container-fluid\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a routerLink=\"upload\" class=\"nav-link\" routerLinkActive=\"active\">\n            Add images\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"match\" class=\"nav-link\" routerLinkActive=\"active\">\n            Check similarity\n          </a>\n        </li> \n      </ul>\n    </div>\n  </nav>\n  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>";
+    __webpack_exports__["default"] = "\n<nav class=\"navbar navbar-expand-sm bg-light\">\n    <div class=\"container-fluid\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a routerLink=\"upload\" class=\"nav-link\" routerLinkActive=\"active\">\n            Add images\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"match\" class=\"nav-link\" routerLinkActive=\"active\">\n            Check similarity\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"select\" class=\"nav-link\" routerLinkActive=\"active\">\n            Select Person\n          </a>\n        </li> \n \n      </ul>\n    </div>\n  </nav>\n  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>";
     /***/
   },
 
@@ -70,6 +70,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<div class =\"img-selection\">\n    <div>\n      <button (click) = \"next()\"> Next</button>\n      <button (click) = \"prev()\"> prev</button>\n    </div>\n\n    <div>\n    <img *ngIf=\"imgbase64\"  src=\"{{'data:image/jpg;base64,' + imgbase64}}\" alt=\"First slide\">\n    </div>\n</div>\n\n<div>\n  <input type=\"text\" (input) = \"nsim\">\n</div>\n<div class=\"img-similar\">\n    <div *ngIf=\"similar\">\n        <img  *ngFor=\"let sim of similar\"  class =\"img-single\" src=\"{{'data:image/jpg;base64,' + sim}}\" alt=\"First slide\">\n      </div>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/select/select.component.html":
+  /*!************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/select/select.component.html ***!
+    \************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppSelectSelectComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<mdb-carousel  class=\"carousel-multi-item multi-animation\" \n              [animation]=\"'slide'\">\n  <mdb-carousel-item *ngFor=\"let item of slides; let i = index\">\n    <div class=\"col-md-4\" [ngClass]=\"{'d-none d-md-block': cardIndex !== 0}\"\n         *ngFor=\"let card of item; let cardIndex = index\">\n      <mdb-card class=\"my-1\">\n        <mdb-card-img [src]=\"card.img\" alt=\"Card image cap\"></mdb-card-img>\n        <button class=\"btn btn-primary\" (click) = \"select(card)\">Select</button>\n      </mdb-card>\n    </div>\n  </mdb-carousel-item>\n</mdb-carousel>";
     /***/
   },
 
@@ -700,6 +720,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _match_match_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./match/match.component */
     "./src/app/match/match.component.ts");
+    /* harmony import */
+
+
+    var _select_select_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./select/select.component */
+    "./src/app/select/select.component.ts");
 
     var routes = [{
       path: 'upload',
@@ -707,6 +733,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'match',
       component: _match_match_component__WEBPACK_IMPORTED_MODULE_4__["MatchComponent"]
+    }, {
+      path: 'select',
+      component: _select_select_component__WEBPACK_IMPORTED_MODULE_5__["SelectComponent"]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {};
@@ -859,12 +888,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _select_select_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./select/select.component */
+    "./src/app/select/select.component.ts");
+    /* harmony import */
+
+
+    var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! angular-bootstrap-md */
+    "./node_modules/angular-bootstrap-md/fesm2015/angular-bootstrap-md.js");
 
     var AppModule = function AppModule() {};
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _upload_upload_component__WEBPACK_IMPORTED_MODULE_5__["UploadComponent"], _match_match_component__WEBPACK_IMPORTED_MODULE_6__["MatchComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_7__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _upload_upload_component__WEBPACK_IMPORTED_MODULE_5__["UploadComponent"], _match_match_component__WEBPACK_IMPORTED_MODULE_6__["MatchComponent"], _select_select_component__WEBPACK_IMPORTED_MODULE_9__["SelectComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_7__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["MDBBootstrapModule"].forRoot()],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })], AppModule);
@@ -1032,6 +1073,169 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/select/select.component.scss":
+  /*!**********************************************!*\
+    !*** ./src/app/select/select.component.scss ***!
+    \**********************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppSelectSelectComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlbGVjdC9zZWxlY3QuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/select/select.component.ts":
+  /*!********************************************!*\
+    !*** ./src/app/select/select.component.ts ***!
+    \********************************************/
+
+  /*! exports provided: SelectComponent */
+
+  /***/
+  function srcAppSelectSelectComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SelectComponent", function () {
+      return SelectComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    var SelectComponent =
+    /*#__PURE__*/
+    function () {
+      function SelectComponent(renderer, http) {
+        this.renderer = renderer;
+        this.http = http;
+        this.cards = [{
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }, {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+        }];
+        this.slides = [[]];
+      }
+
+      var _proto2 = SelectComponent.prototype;
+
+      _proto2.chunk = function chunk(arr, chunkSize) {
+        var R = [];
+
+        for (var i = 0, len = arr.length; i < len; i += chunkSize) {
+          R.push(arr.slice(i, i + chunkSize));
+        }
+
+        return R;
+      };
+
+      _proto2.ngOnInit = function ngOnInit() {
+        var _this4 = this;
+
+        // this.cards = [];
+        this.slides = this.chunk(this.cards, 5);
+        this.http.get('/select/').subscribe(function (res) {
+          var data = res['files'];
+
+          for (var i = 0; i < data.length; i++) {
+            _this4.cards.push({
+              'img': data[i]['file_name']
+            });
+          }
+
+          _this4.slides = _this4.chunk(_this4.cards, 5);
+        }, function (err) {
+          console.log(err);
+        });
+      };
+
+      _proto2.select = function select(card) {
+        var fileNames = card['img'].split('/');
+        var fileName = fileNames[fileNames.length - 1];
+        console.log(fileName);
+        this.http.post('/select/' + fileName, {}).subscribe(function (res) {
+          console.log("Success");
+        });
+      };
+
+      _proto2.ngAfterViewInit = function ngAfterViewInit() {
+        var _this5 = this;
+
+        var buttons = document.querySelectorAll('.btn-floating');
+        buttons.forEach(function (el) {
+          _this5.renderer.removeClass(el, 'btn-floating');
+
+          _this5.renderer.addClass(el, 'px-5');
+
+          _this5.renderer.addClass(el.firstElementChild, 'fa-3x');
+        });
+      };
+
+      return SelectComponent;
+    }();
+
+    SelectComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+      }, {
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    SelectComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-select',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./select.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/select/select.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./select.component.scss */
+      "./src/app/select/select.component.scss")).default]
+    })], SelectComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/upload/upload.component.scss":
   /*!**********************************************!*\
     !*** ./src/app/upload/upload.component.scss ***!
@@ -1123,21 +1327,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
       }
 
-      var _proto2 = UploadComponent.prototype;
+      var _proto3 = UploadComponent.prototype;
 
-      _proto2.ngOnInit = function ngOnInit() {
-        var _this4 = this;
+      _proto3.ngOnInit = function ngOnInit() {
+        var _this6 = this;
 
         ngx_webcam__WEBPACK_IMPORTED_MODULE_3__["WebcamUtil"].getAvailableVideoInputs().then(function (mediaDevices) {
-          _this4.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+          _this6.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
         });
       };
 
-      _proto2.triggerSnapshot = function triggerSnapshot() {
+      _proto3.triggerSnapshot = function triggerSnapshot() {
         this.trigger.next();
       };
 
-      _proto2.uploadFile = function uploadFile() {
+      _proto3.uploadFile = function uploadFile() {
         var compFileName = this.fileName;
         var url = '/upload/' + compFileName + '.jpg';
         this.http.post(url, {
@@ -1146,27 +1350,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         });
       };
 
-      _proto2.toggleWebcam = function toggleWebcam() {
+      _proto3.toggleWebcam = function toggleWebcam() {
         this.showWebcam = !this.showWebcam;
       };
 
-      _proto2.handleInitError = function handleInitError(error) {
+      _proto3.handleInitError = function handleInitError(error) {
         this.errors.push(error);
       };
 
-      _proto2.showNextWebcam = function showNextWebcam(directionOrDeviceId) {
+      _proto3.showNextWebcam = function showNextWebcam(directionOrDeviceId) {
         // true => move forward through devices
         // false => move backwards through devices
         // string => move to device with given deviceId
         this.nextWebcam.next(directionOrDeviceId);
       };
 
-      _proto2.handleImage = function handleImage(webcamImage) {
+      _proto3.handleImage = function handleImage(webcamImage) {
         //console.info('received webcam image', webcamImage);
         this.webcamImage = webcamImage;
       };
 
-      _proto2.cameraWasSwitched = function cameraWasSwitched(deviceId) {
+      _proto3.cameraWasSwitched = function cameraWasSwitched(deviceId) {
         //console.log('active device: ' + deviceId);
         this.deviceId = deviceId;
       };
