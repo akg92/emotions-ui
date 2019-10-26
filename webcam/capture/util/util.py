@@ -42,7 +42,9 @@ def find_similar(first_img):
         if(result[0]):
             shutil.copyfile(in_file,out_file)
     ## execute the code to compute similarity
-    cmd = os.environ['CMD_EXE'].format(sim_folder)
+    cmd = os.environ['CMD_EXE'].format(sim_folder, sim_folder)
+    os.environ['STORE_DIR'] = sim_folder+'/'
+    os.environ['RELOAD_SIM'] = True
     os.system(cmd)
 
-cut_images(os.environ['ALL_IMAGE'], os.environ['CUT_FOLDER'])
+cut_images(os.environ['ALL_FOLDER'], os.environ['CUT_FOLDER'])

@@ -13,9 +13,9 @@ class SimStore():
     mapping = None
     @staticmethod
     def populate():
-        if not SimStore.mapping:
+        if os.environ['RELOAD_SIM'] or not SimStore.mapping:
             SimStore.mapping = {}
-
+            os.environ['RELOAD_SIM'] = False
             sim_file_name = os.environ['SIM_CSV']
 
             with open(sim_file_name, 'r') as f:
