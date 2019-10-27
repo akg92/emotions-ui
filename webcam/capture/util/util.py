@@ -30,6 +30,7 @@ def get_frames(out_folder):
     video_folder = os.environ['VIDEO_FOLDER']
     
     for file in os.listdir(video_folder):
+        print('Processing {}'.format(file))
         video_file = os.path.join(video_folder, file)
         video_file_prefix = os.path.splitext(file)[0]
         cap = cv2.VideoCapture(video_file)
@@ -39,9 +40,11 @@ def get_frames(out_folder):
 
             cur_frame = cap.get(1)
             ret, frame = cap.read()
-            if(cur_frame % math.floor(frame_rate)):
+            if(cur_frame % math.floor(frame_rate) == 0):
                 out_file = os.path.join(out_folder, str(cur_frame)+"_"+video_file+".jpg")
                 cv2.imwrite(out_file, frame)
+            if( not ret ):
+                break
     
 
 
