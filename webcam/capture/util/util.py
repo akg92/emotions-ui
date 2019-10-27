@@ -26,7 +26,7 @@ def cut_images(in_folder, out_folder):
 def get_frames(out_folder):
     if os.path.exists(out_folder):
         shutil.rmtree(out_folder, ignore_errors= True)
-    
+    os.mkdir(out_folder)    
     video_folder = os.environ['VIDEO_FOLDER']
     
     for file in os.listdir(video_folder):
