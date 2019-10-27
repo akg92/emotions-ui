@@ -1136,25 +1136,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       function SelectComponent(renderer, http) {
         this.renderer = renderer;
         this.http = http;
-        this.cards = [{
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }, {
-          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
-        }];
+        this.cards = [// {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+          // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        ];
         this.slides = [[]];
       }
 
@@ -1173,8 +1164,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _proto2.ngOnInit = function ngOnInit() {
         var _this4 = this;
 
-        // this.cards = [];
-        this.slides = this.chunk(this.cards, 5);
+        this.cards = []; //this.slides = this.chunk(this.cards, 5);
+
         this.http.get('/select/').subscribe(function (res) {
           var data = res['files'];
 
@@ -1184,7 +1175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           }
 
-          _this4.slides = _this4.chunk(_this4.cards, 5);
+          _this4.slides = _this4.chunk(_this4.cards, 3);
         }, function (err) {
           console.log(err);
         });

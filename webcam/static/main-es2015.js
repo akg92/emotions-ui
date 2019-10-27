@@ -593,15 +593,15 @@ let SelectComponent = class SelectComponent {
         this.renderer = renderer;
         this.http = http;
         this.cards = [
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
-            { img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg' },
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
+        // {img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'},
         ];
         this.slides = [[]];
     }
@@ -613,14 +613,14 @@ let SelectComponent = class SelectComponent {
         return R;
     }
     ngOnInit() {
-        // this.cards = [];
-        this.slides = this.chunk(this.cards, 5);
+        this.cards = [];
+        //this.slides = this.chunk(this.cards, 5);
         this.http.get('/select/').subscribe(res => {
             let data = res['files'];
             for (let i = 0; i < data.length; i++) {
                 this.cards.push({ 'img': data[i]['file_name'] });
             }
-            this.slides = this.chunk(this.cards, 5);
+            this.slides = this.chunk(this.cards, 3);
         }, err => {
             console.log(err);
         });
