@@ -43,7 +43,7 @@ def get_frames(out_folder):
             ret, frame = cap.read()
             print('{}: {}'.format(cur_frame, frame_rate))
             if(math.floor(cur_frame) % math.floor(frame_rate) == 0):
-                out_file = os.path.join(out_folder, str(cur_frame)+"_"+video_file_prefix+".jpg")
+                out_file = os.path.join(out_folder, str(int(cur_frame))+"_"+video_file_prefix+".jpg")
                 cv2.imwrite(out_file, frame)
             if( not ret ):
                 break
