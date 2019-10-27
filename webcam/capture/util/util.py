@@ -5,6 +5,7 @@ import shutil
 import sys
 import math
 def cut_images(in_folder, out_folder):
+    print('{}:{}'.format(in_folder, out_folder))
     if(os.path.exists(out_folder)):
         return
     ## create frames from video
