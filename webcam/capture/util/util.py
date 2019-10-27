@@ -1,3 +1,4 @@
+import os
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 def limitUsage(deviceList):
@@ -14,7 +15,6 @@ limitUsage(os.environ["GPU"])
 
 
 import face_recognition
-import os
 import cv2
 import shutil 
 import sys
