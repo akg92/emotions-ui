@@ -12,7 +12,7 @@ from capture.util import util
 
 class Select(APIView):
 
-    def get(self, request,file_name='None'):
+    def get(self, request,file_name=None):
         
         if( not file_name):
             result = []
