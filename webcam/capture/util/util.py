@@ -4,6 +4,19 @@ import cv2
 import shutil 
 import sys
 import math
+
+
+import tensorflow as tf
+
+from keras.backend.tensorflow_backend import set_session
+
+def limitUsage(deviceList):
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    config.gpu_options.visible_device_list = deviceList #only the gpu 0 is allowed
+    set_session(tf.Session(config=config))
+
+
 def cut_images(in_folder, out_folder):
     print('{}:{}'.format(in_folder, out_folder))
     if(os.path.exists(out_folder)):
@@ -12,11 +25,13 @@ def cut_images(in_folder, out_folder):
     get_frames(in_folder)
 
     for file in os.listdir(in_folder):
+        print('Processing file {}'.format(file))
         in_file_path = os.path.join(in_folder, file)
         image = face_recognition.load_image_file(in_file_path)
         face_locations = face_recognition.face_locations(image)
         i  = 0
         for face_location in face_locations:
+            print('Processing file {}-{}'.format(file,i))
             cut_img = image[face_location[0]:face_location[2], face_location[1]:face_location[3]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
             cv2.imwrite(out_file_path, cut_img)
@@ -41,7 +56,7 @@ def get_frames(out_folder):
 
             cur_frame = cap.get(1)
             ret, frame = cap.read()
-            print('{}: {}'.format(cur_frame, frame_rate))
+            # print('{}: {}'.format(cur_frame, frame_rate))
             if(math.floor(cur_frame) % math.floor(frame_rate) == 0):
                 out_file = os.path.join(out_folder, str(int(cur_frame))+"_"+video_file_prefix+".jpg")
                 cv2.imwrite(out_file, frame)
@@ -83,4 +98,5 @@ def find_similar(first_img):
 """
     cut images
 """
+limitUsage(os.environ["GPU"])
 cut_images(os.environ['ALL_FOLDER'], os.environ['CUT_FOLDER'])
