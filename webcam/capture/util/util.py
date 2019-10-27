@@ -89,13 +89,21 @@ def find_similar(first_img):
     
     first_img_obj = face_recognition.load_image_file(first_img)
     print('Image shape{}'.format(first_img_obj.shape))
-    first_img_encoding = face_recognition.face_encodings(first_img_obj)[0]
+    first_img_encodings = face_recognition.face_encodings(first_img_obj) 
+
+    if(first_img_encodings is None or len(first_img_encodings) == 0 ):
+        return 
+
+    first_img_encoding =  first_img_encodings[0]
     for file in os.listdir(cut_folder):
         in_file = os.path.join(cut_folder, file)
         out_file = os.path.join(sim_folder, file)
         unknown_picture = face_recognition.load_image_file(in_file)
-        unknown_face_encoding = face_recognition.face_encodings(unknown_picture)[0]
-        result = face_recognition.compare_faces(first_img_encoding, unknown_face_encoding)
+        unknown_face_encodings = face_recognition.face_encodings(unknown_picture)
+        if(unknown_face_encodings is None or len(unknown_face_encodings) == 0 ):
+            continue
+        unknown_face_encoding = unknown_face_encodings[0]
+        result = face_recognition.compare_faces([first_img_encoding], unknown_face_encoding)
         if(result[0]):
             shutil.copyfile(in_file,out_file)
     ## execute the code to compute similarity
