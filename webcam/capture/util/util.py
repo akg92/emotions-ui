@@ -25,10 +25,11 @@ import math
 def cut_images(in_folder, out_folder):
     print('{}:{}'.format(in_folder, out_folder))
     if(os.path.exists(out_folder)):
+        #shutil.rmtree(out_folder)
         return
+    os.mkdir(out_folder)
     ## create frames from video
     get_frames(in_folder)
-
     for file in os.listdir(in_folder):
         print('Processing file {}'.format(file))
         in_file_path = os.path.join(in_folder, file)
