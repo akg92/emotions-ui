@@ -113,8 +113,12 @@ def find_similar(first_img):
                 os.mkdir(sim_folder)
             shutil.copyfile(in_file,out_file)
     ## execute the code to compute similarity
-    cmd = os.environ['CMD_EXE'].format(sim_folder, sim_folder)
-    os.environ['STORE_DIR'] = sim_folder+'/'
+    shutil.rmtree(os.environ['STORE_DIR'],ignore_errors = True)
+    #os.mkdir(os.environ['STORE_DIR'])
+    shutil.copytree(sim_folder, os.environ['STORE_DIR'])
+    cmd = os.environ['CMD_EXE'].format( os.path.abspath(os.environ['STORE_DIR']),
+        os.path.abspath('./data2'))
+    #os.environ['STORE_DIR'] = sim_folder+'/'
     os.environ['RELOAD_SIM'] = 'True'
     os.system(cmd)
 
