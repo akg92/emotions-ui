@@ -88,6 +88,7 @@ def find_similar(first_img):
     os.mkdir(sim_folder)
     
     first_img_obj = face_recognition.load_image_file(first_img)
+    print('Image shape{}'.format(first_img_obj.shape))
     first_img_encoding = face_recognition.face_encodings(first_img_obj)[0]
     for file in os.listdir(cut_folder):
         in_file = os.path.join(cut_folder, file)
