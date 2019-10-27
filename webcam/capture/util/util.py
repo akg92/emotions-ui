@@ -38,7 +38,7 @@ def cut_images(in_folder, out_folder):
         i  = 0
         for face_location in face_locations:
             print(face_location)
-            cut_img = image[face_location[2]:face_location[0], face_location[3]:face_location[1]]
+            cut_img = image[face_location[0]:face_location[2], face_location[3]:face_location[1]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
             print('Processing file {}'.format(out_file_path))
             cv2.imwrite(out_file_path, cut_img)
