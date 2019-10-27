@@ -41,6 +41,7 @@ class Select(APIView):
     ## pick the file name
     def post(self, request, file_name):
         util.find_similar(file_name)
+        return Response("{}", 200)
 
 
 def get_file(request, file_name):
