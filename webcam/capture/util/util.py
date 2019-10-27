@@ -78,8 +78,8 @@ def get_frames(out_folder):
 """
 def find_similar(first_img):
     cut_folder = os.environ['CUT_FOLDER']
-    first_img = os.path.join(cut_folder, first_img)
     base_path = os.path.splitext(first_img)[0]
+    first_img = os.path.join(cut_folder, first_img)
     
     sim_folder = os.path.join( os.environ['SIM_FOLDER'],base_path)
     if(os.path.exists(sim_folder)):
