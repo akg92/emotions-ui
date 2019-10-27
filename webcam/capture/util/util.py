@@ -3,9 +3,13 @@ import os
 import cv2
 import shutil 
 import sys
+import math
 def cut_images(in_folder, out_folder):
     if(os.path.exists(out_folder)):
-        return 
+        return
+    ## create frames from video
+    get_frames(in_folder)
+
     for file in os.listdir(in_folder):
         in_file_path = os.path.join(in_folder, file)
         image = face_recognition.load_image_file(in_file_path)
@@ -16,6 +20,29 @@ def cut_images(in_folder, out_folder):
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
             cv2.imwrite(out_file_path, cut_img)
             i += 1
+"""
+    Get frames.
+"""
+def get_frames(out_folder):
+    if os.path.exists(out_folder):
+        shutil.rmtree(out_folder, ignore_errors= True)
+    
+    video_folder = os.environ['VIDEO_FOLDER']
+    
+    for file in os.listdir(video_folder):
+        video_file = os.path.join(video_folder, file)
+        cap = cv2.VideoCapture(video_file)
+        frame_rate = cap.get(5)
+
+        while(cap.isOpened()):
+
+            cur_frame = cap.get(1)
+            ret, frame = cap.read()
+            if(cur_frame % math.floor(frame_rate)):
+                out_file = os.path.join(out_folder, str(cur_frame)+"_"+video_file)
+                cv2.imwrite(out_file, frame)
+    
+
 
 """
     find similar images
@@ -47,4 +74,7 @@ def find_similar(first_img):
     os.environ['RELOAD_SIM'] = True
     os.system(cmd)
 
+"""
+    cut images
+"""
 cut_images(os.environ['ALL_FOLDER'], os.environ['CUT_FOLDER'])
