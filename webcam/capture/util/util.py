@@ -27,9 +27,9 @@ def cut_images(in_folder, out_folder):
     if(os.path.exists(out_folder)):
         #shutil.rmtree(out_folder)
         return
-    os.mkdir(out_folder)
     ## create frames from video
     get_frames(in_folder)
+    os.mkdir(out_folder)
     for file in os.listdir(in_folder):
         print('Processing file {}'.format(file))
         in_file_path = os.path.join(in_folder, file)
@@ -37,9 +37,9 @@ def cut_images(in_folder, out_folder):
         face_locations = face_recognition.face_locations(image)
         i  = 0
         for face_location in face_locations:
-            print('Processing file {}-{}'.format(file,i))
             cut_img = image[face_location[0]:face_location[2], face_location[1]:face_location[3]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
+            print('Processing file {}'.format(out_file_path))
             cv2.imwrite(out_file_path, cut_img)
             i += 1
 """
