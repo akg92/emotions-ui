@@ -17,14 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from capture.template.upload import FileUpload
 from capture.template.match import Match
-from capture.template.select import Select
+from capture.template.select import Select,getcut
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/', FileUpload.as_view() ),
     path('upload/<str:file_name>', FileUpload.as_view() ),
     path('match/<str:file_name>', Match.as_view()),
     path('select/', Select.as_view()),
-    path('select/<str:file_name>', Select.as_view())
+    path('select/<str:file_name>', Select.as_view()),
+    path('getcut/<str:file_name>', getcut)
+
 
 
 ]

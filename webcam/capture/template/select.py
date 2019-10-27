@@ -9,7 +9,7 @@ import base64
 import json
 import csv
 from capture.util import util
-
+from django.http import HttpResponse
 class Select(APIView):
 
     def get(self, request,file_name=None):
@@ -17,11 +17,10 @@ class Select(APIView):
         if( not file_name):
             result = []
             for file in os.listdir(os.environ['CUT_FOLDER']):
-                result.append( {'file_name': '/select/'+file} )
+                result.append( {'file_name': '/getcut/'+file} )
         
             return Response( {'files': result}, 200)
 
-        file_name = os.path.join(os.environ['CUT_FOLDER'], file_name)
         fs = FileSystemStorage()
         obj = fs.open(file_name)
         response = Response()
@@ -42,6 +41,13 @@ class Select(APIView):
     ## pick the file name
     def post(self, request, file_name):
         util.find_similar(file_name)
+
+
+def get_file(request, file_name):
+    file_name = os.path.join(os.environ['CUT_FOLDER'], file_name)
+    with open(file_name,'rb') as f:
+        return HttpResponse(f.read(), content_type="image/jpeg")
+
 
 
 
