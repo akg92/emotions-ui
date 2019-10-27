@@ -1,3 +1,18 @@
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+def limitUsage(deviceList):
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    config.gpu_options.visible_device_list = deviceList #only the gpu 0 is allowed
+    set_session(tf.Session(config=config))
+
+
+"""
+  Set gpu
+"""
+limitUsage(os.environ["GPU"])
+
+
 import face_recognition
 import os
 import cv2
@@ -5,16 +20,6 @@ import shutil
 import sys
 import math
 
-
-import tensorflow as tf
-
-from keras.backend.tensorflow_backend import set_session
-
-def limitUsage(deviceList):
-    config = tf.ConfigProto()
-    config.gpu_options.allow_growth = True
-    config.gpu_options.visible_device_list = deviceList #only the gpu 0 is allowed
-    set_session(tf.Session(config=config))
 
 
 def cut_images(in_folder, out_folder):
@@ -98,5 +103,4 @@ def find_similar(first_img):
 """
     cut images
 """
-limitUsage(os.environ["GPU"])
 cut_images(os.environ['ALL_FOLDER'], os.environ['CUT_FOLDER'])
