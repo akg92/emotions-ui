@@ -41,7 +41,7 @@ def cut_images(in_folder, out_folder):
             cut_img = image[face_location[0]:face_location[2], face_location[3]:face_location[1]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
             print('Processing file {}'.format(out_file_path))
-            cv2.imwrite(out_file_path, cut_img)
+            cv2.imwrite(out_file_path, cv2.cvtColor(cut_img, cv2.COLOR_RGB2BGR))
             i += 1
 """
     Get frames.
