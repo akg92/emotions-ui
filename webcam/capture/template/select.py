@@ -34,7 +34,8 @@ class Select(APIView):
                 content += line
 
         #obj.close()
-        response = Response( base64.b64encode( content ))
+        response = Response(  content )
+        response.content_type ='image/jpeg'
         return response
 
 
