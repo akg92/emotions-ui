@@ -31,6 +31,7 @@ def get_frames(out_folder):
     
     for file in os.listdir(video_folder):
         video_file = os.path.join(video_folder, file)
+        video_file_prefix = os.path.splitext(file)[0]
         cap = cv2.VideoCapture(video_file)
         frame_rate = cap.get(5)
 
@@ -39,7 +40,7 @@ def get_frames(out_folder):
             cur_frame = cap.get(1)
             ret, frame = cap.read()
             if(cur_frame % math.floor(frame_rate)):
-                out_file = os.path.join(out_folder, str(cur_frame)+"_"+video_file)
+                out_file = os.path.join(out_folder, str(cur_frame)+"_"+video_file+".jpg")
                 cv2.imwrite(out_file, frame)
     
 
@@ -50,7 +51,7 @@ def get_frames(out_folder):
 def find_similar(first_img):
     cut_folder = os.environ['CUT_FOLDER']
     first_img = os.path.join(cut_folder, first_img)
-    base_path = os.path.splitext(first_img)
+    base_path = os.path.splitext(first_img)[0]
     
     sim_folder = os.path.join( os.environ['SIM_FOLDER'],base_path)
     if(os.path.exists(sim_folder)):
