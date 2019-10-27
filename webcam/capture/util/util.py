@@ -103,6 +103,7 @@ def find_similar(first_img):
         unknown_picture = face_recognition.load_image_file(in_file)
         unknown_face_encodings = face_recognition.face_encodings(unknown_picture)
         if(unknown_face_encodings is None or len(unknown_face_encodings) == 0 ):
+            print(in_file)
             continue
         unknown_face_encoding = unknown_face_encodings[0]
         result = face_recognition.compare_faces([first_img_encoding], unknown_face_encoding)
