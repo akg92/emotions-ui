@@ -78,7 +78,7 @@ def get_frames(out_folder):
 """
 def find_similar(first_img):
     cut_folder = os.environ['CUT_FOLDER']
-    base_path = str(hash(os.path.splitext(first_img)[0]))
+    base_path = str(abs(hash(os.path.splitext(first_img)[0])))
     first_img = os.path.join(cut_folder, first_img)
     
     sim_folder = os.path.join( os.environ['SIM_FOLDER'],base_path)
