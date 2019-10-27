@@ -41,6 +41,7 @@ def get_frames(out_folder):
 
             cur_frame = cap.get(1)
             ret, frame = cap.read()
+            print('{}: {}'.format(cur_frame, frame_rate))
             if(cur_frame % math.floor(frame_rate) == 0):
                 out_file = os.path.join(out_folder, str(cur_frame)+"_"+video_file_prefix+".jpg")
                 cv2.imwrite(out_file, frame)
