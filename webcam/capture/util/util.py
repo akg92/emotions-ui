@@ -92,7 +92,9 @@ def find_similar(first_img):
     first_img_encodings = face_recognition.face_encodings(first_img_obj) 
 
     if(first_img_encodings is None or len(first_img_encodings) == 0 ):
+        print('First image is empty {}'.format(first_img_encodings))
         return 
+    first_img_encoding = first_img_encodings[0]
 
     first_img_encoding =  first_img_encodings[0]
     for file in os.listdir(cut_folder):
