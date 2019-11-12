@@ -32,6 +32,8 @@
     "ngx-webcam": "^0.2.6",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "videogular": "^2.2.1",
+    "videogular2": "^7.0.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

@@ -49,7 +49,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<nav class=\"navbar navbar-expand-sm bg-light\">\n    <div class=\"container-fluid\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a routerLink=\"upload\" class=\"nav-link\" routerLinkActive=\"active\">\n            Add images\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"match\" class=\"nav-link\" routerLinkActive=\"active\">\n            Check similarity\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"select\" class=\"nav-link\" routerLinkActive=\"active\">\n            Select Person\n          </a>\n        </li> \n \n      </ul>\n    </div>\n  </nav>\n  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>";
+    __webpack_exports__["default"] = "\n<nav class=\"navbar navbar-expand-sm bg-light\">\n    <div class=\"container-fluid\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a routerLink=\"upload\" class=\"nav-link\" routerLinkActive=\"active\">\n            Add images\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"match\" class=\"nav-link\" routerLinkActive=\"active\">\n            Check similarity\n          </a>\n          <li class=\"nav-item\">\n            <a routerLink=\"matchVid\" class=\"nav-link\" routerLinkActive=\"active\">\n              Check Video similarity\n            </a>\n        </li>\n        <li class=\"nav-item\">\n          <a routerLink=\"select\" class=\"nav-link\" routerLinkActive=\"active\">\n            Select Person\n          </a>\n        </li> \n \n      </ul>\n    </div>\n  </nav>\n  \n  <div class=\"container\">\n    <router-outlet></router-outlet>\n  </div>";
     /***/
   },
 
@@ -110,6 +110,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<div style=\"text-align:center\">\n        <h1>\n          WebCam capture\n        </h1>\n      \n        <div>\n          <webcam [height]=\"500\" [width]=\"500\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n                  [switchCamera]=\"nextWebcamObservable\"\n                  [videoOptions]=\"videoOptions\"\n                  [imageQuality]=\"1\"\n                  (cameraSwitched)=\"cameraWasSwitched($event)\"\n                  (initError)=\"handleInitError($event)\"\n          ></webcam>\n          <br/>\n          <div>\n          <button type = \"button\" class=\"btn btn-primary\" (click)=\"triggerSnapshot();\">Take A Snapshot</button>\n          <button type = \"button\" class=\"btn btn-primary\" (click)=\"uploadFile();\">Upload</button>\n          <div>\n              <label name=\"File name prefix\"> File Name prefix</label>\n          <input type = \"text\" [value] = filePrefix>\n          </div>\n          <div>\n          <br/>\n        </div>\n      </div>\n      \n      <div class=\"snapshot\" *ngIf=\"webcamImage\">\n        <h2>Nice one!</h2>\n        <img [src]=\"webcamImage.imageAsDataUrl\"/>\n      </div>\n      \n      <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\n      <ul *ngFor=\"let error of errors\">\n        <li>{{error | json}}</li>\n      </ul>\n   \n      \n      ";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/videomatch/videomatch.component.html":
+  /*!********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/videomatch/videomatch.component.html ***!
+    \********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppVideomatchVideomatchComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div>\n\n    <ul>\n        <li *ngFor =\"let vidName of vidNames\"> <a (click) = \"selct(vidName)\">{{vidName}}</a></li>\n    </ul>\n\n</div>\n<div class = \"playlist\">\n\n    <vg-player *ngFor=\"let video of playlist\" class=\"video-container\">\n        <vg-overlay-play></vg-overlay-play>\n        <vg-buffering></vg-buffering>\n\n        <vg-scrub-bar>\n            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>\n            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>\n        </vg-scrub-bar>\n\n        <vg-controls>\n            <vg-play-pause></vg-play-pause>\n            <vg-playback-button></vg-playback-button>\n\n            <vg-time-display vgProperty=\"current\" vgFormat=\"mm:ss\"></vg-time-display>\n\n            <vg-scrub-bar style=\"pointer-events: none;\"></vg-scrub-bar>\n\n            <vg-time-display vgProperty=\"left\" vgFormat=\"mm:ss\"></vg-time-display>\n            <vg-time-display vgProperty=\"total\" vgFormat=\"mm:ss\"></vg-time-display>\n\n            <vg-track-selector></vg-track-selector>\n            <vg-mute></vg-mute>\n            <vg-volume></vg-volume>\n\n            <vg-fullscreen></vg-fullscreen>\n        </vg-controls>\n\n        <video #mediaOne [vgMedia]=\"mediaOne\" preload=\"auto\" crossorigin>\n            <source [src]=\"video.src\" [type]=\"video.type\">\n            <!-- <track kind=\"subtitles\" label=\"English\" src=\"assets/subs/pale-blue-dot.vtt\" srclang=\"en\" default> -->\n            <!-- <track kind=\"subtitles\" label=\"Español\" src=\"assets/subs/pale-blue-dot-es.vtt\" srclang=\"es\"> -->\n        </video>\n        <ul>\n            <!-- <li *ngFor=\"let item of playlist; let $index = index\"\n        (click)=\"onClickPlaylistItem(item, $index)\"\n        [class.selected]=\"item === currentItem\">\n        {{ item.title }}\n    </li> -->\n        </ul>\n    </vg-player>\n\n</div>\n<!-- <ul>\n    <li *ngFor=\"let item of playlist; let $index = index\"\n        (click)=\"onClickPlaylistItem(item, $index)\"\n        [class.selected]=\"item === currentItem\">\n        {{ item.title }}\n    </li>\n </ul> -->";
     /***/
   },
 
@@ -726,6 +746,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _select_select_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./select/select.component */
     "./src/app/select/select.component.ts");
+    /* harmony import */
+
+
+    var _videomatch_videomatch_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./videomatch/videomatch.component */
+    "./src/app/videomatch/videomatch.component.ts");
 
     var routes = [{
       path: 'upload',
@@ -736,6 +762,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'select',
       component: _select_select_component__WEBPACK_IMPORTED_MODULE_5__["SelectComponent"]
+    }, {
+      path: 'matchVid',
+      component: _videomatch_videomatch_component__WEBPACK_IMPORTED_MODULE_6__["VideomatchComponent"]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {};
@@ -763,7 +792,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".img-selection {\n  width: 20%;\n  height: 20%;\n}\n\n.img-similar {\n  width: 100%;\n  height: 100%;\n}\n\n.img-single {\n  width: 20%;\n  height: 20%;\n  display: inline-block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NoaWJpbi9Eb3dubG9hZHMvUmVzZWFyY2gvZW1vdGlvbnMtdWkvd2ViY2FtL2Zyb250ZW5kL2ZleHAtdWkvc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxXQUFBO0FDQ0o7O0FEQ0E7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0VKOztBREFBO0VBQ0ksVUFBQTtFQUNBLFdBQUE7RUFDQSxxQkFBQTtBQ0dKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1zZWxlY3Rpb257XG4gICAgd2lkdGg6IDIwJTtcbiAgICBoZWlnaHQ6IDIwJTtcbn1cbi5pbWctc2ltaWxhcntcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG4uaW1nLXNpbmdsZXtcbiAgICB3aWR0aDogMjAlO1xuICAgIGhlaWdodDogMjAlO1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn0iLCIuaW1nLXNlbGVjdGlvbiB7XG4gIHdpZHRoOiAyMCU7XG4gIGhlaWdodDogMjAlO1xufVxuXG4uaW1nLXNpbWlsYXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uaW1nLXNpbmdsZSB7XG4gIHdpZHRoOiAyMCU7XG4gIGhlaWdodDogMjAlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59Il19 */";
+    __webpack_exports__["default"] = ".img-selection {\n  width: 20%;\n  height: 20%;\n}\n\n.img-similar {\n  width: 100%;\n  height: 100%;\n}\n\n.img-single {\n  width: 20%;\n  height: 20%;\n  display: inline-block;\n}\n\n.videocontainer {\n  width: 20%;\n  height: 20;\n  display: inline-block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NoaWJpbi9Eb3dubG9hZHMvUmVzZWFyY2gvZW1vdGlvbnMtdWkvd2ViY2FtL2Zyb250ZW5kL2ZleHAtdWkvc3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxXQUFBO0FDQ0o7O0FEQ0E7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0VKOztBREFBO0VBQ0ksVUFBQTtFQUNBLFdBQUE7RUFDQSxxQkFBQTtBQ0dKOztBRERBO0VBQ0ksVUFBQTtFQUNBLFVBQUE7RUFDQSxxQkFBQTtBQ0lKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1zZWxlY3Rpb257XG4gICAgd2lkdGg6IDIwJTtcbiAgICBoZWlnaHQ6IDIwJTtcbn1cbi5pbWctc2ltaWxhcntcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG4uaW1nLXNpbmdsZXtcbiAgICB3aWR0aDogMjAlO1xuICAgIGhlaWdodDogMjAlO1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi52aWRlb2NvbnRhaW5lcntcbiAgICB3aWR0aDogMjAlO1xuICAgIGhlaWdodDogMjA7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufSIsIi5pbWctc2VsZWN0aW9uIHtcbiAgd2lkdGg6IDIwJTtcbiAgaGVpZ2h0OiAyMCU7XG59XG5cbi5pbWctc2ltaWxhciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbi5pbWctc2luZ2xlIHtcbiAgd2lkdGg6IDIwJTtcbiAgaGVpZ2h0OiAyMCU7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cblxuLnZpZGVvY29udGFpbmVyIHtcbiAgd2lkdGg6IDIwJTtcbiAgaGVpZ2h0OiAyMDtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufSJdfQ== */";
     /***/
   },
 
@@ -900,12 +929,66 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! angular-bootstrap-md */
     "./node_modules/angular-bootstrap-md/fesm2015/angular-bootstrap-md.js");
+    /* harmony import */
+
+
+    var _videomatch_videomatch_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./videomatch/videomatch.component */
+    "./src/app/videomatch/videomatch.component.ts");
+    /* harmony import */
+
+
+    var videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! videogular2/compiled/core */
+    "./node_modules/videogular2/compiled/core.js");
+    /* harmony import */
+
+
+    var videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_12___default =
+    /*#__PURE__*/
+    __webpack_require__.n(videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_12__);
+    /* harmony import */
+
+
+    var videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! videogular2/compiled/controls */
+    "./node_modules/videogular2/compiled/controls.js");
+    /* harmony import */
+
+
+    var videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_13___default =
+    /*#__PURE__*/
+    __webpack_require__.n(videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_13__);
+    /* harmony import */
+
+
+    var videogular2_compiled_overlay_play__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! videogular2/compiled/overlay-play */
+    "./node_modules/videogular2/compiled/overlay-play.js");
+    /* harmony import */
+
+
+    var videogular2_compiled_overlay_play__WEBPACK_IMPORTED_MODULE_14___default =
+    /*#__PURE__*/
+    __webpack_require__.n(videogular2_compiled_overlay_play__WEBPACK_IMPORTED_MODULE_14__);
+    /* harmony import */
+
+
+    var videogular2_compiled_buffering__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! videogular2/compiled/buffering */
+    "./node_modules/videogular2/compiled/buffering.js");
+    /* harmony import */
+
+
+    var videogular2_compiled_buffering__WEBPACK_IMPORTED_MODULE_15___default =
+    /*#__PURE__*/
+    __webpack_require__.n(videogular2_compiled_buffering__WEBPACK_IMPORTED_MODULE_15__);
 
     var AppModule = function AppModule() {};
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _upload_upload_component__WEBPACK_IMPORTED_MODULE_5__["UploadComponent"], _match_match_component__WEBPACK_IMPORTED_MODULE_6__["MatchComponent"], _select_select_component__WEBPACK_IMPORTED_MODULE_9__["SelectComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_7__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["MDBBootstrapModule"].forRoot()],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _upload_upload_component__WEBPACK_IMPORTED_MODULE_5__["UploadComponent"], _match_match_component__WEBPACK_IMPORTED_MODULE_6__["MatchComponent"], _select_select_component__WEBPACK_IMPORTED_MODULE_9__["SelectComponent"], _videomatch_videomatch_component__WEBPACK_IMPORTED_MODULE_11__["VideomatchComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_12__["VgCoreModule"], videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_13__["VgControlsModule"], videogular2_compiled_overlay_play__WEBPACK_IMPORTED_MODULE_14__["VgOverlayPlayModule"], videogular2_compiled_buffering__WEBPACK_IMPORTED_MODULE_15__["VgBufferingModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_7__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["MDBBootstrapModule"].forRoot()],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })], AppModule);
@@ -1401,6 +1484,141 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./upload.component.scss */
       "./src/app/upload/upload.component.scss")).default]
     })], UploadComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/videomatch/videomatch.component.scss":
+  /*!******************************************************!*\
+    !*** ./src/app/videomatch/videomatch.component.scss ***!
+    \******************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppVideomatchVideomatchComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".videocontainer {\n  width: 20%;\n  height: 20;\n  display: inline-block;\n}\n\n.playlist {\n  width: 20%;\n  height: 20%;\n  display: inline-block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3NoaWJpbi9Eb3dubG9hZHMvUmVzZWFyY2gvZW1vdGlvbnMtdWkvd2ViY2FtL2Zyb250ZW5kL2ZleHAtdWkvc3JjL2FwcC92aWRlb21hdGNoL3ZpZGVvbWF0Y2guY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3ZpZGVvbWF0Y2gvdmlkZW9tYXRjaC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7RUFDQSxVQUFBO0VBQ0EscUJBQUE7QUNDSjs7QURFQTtFQUNJLFVBQUE7RUFDQSxXQUFBO0VBQ0EscUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3ZpZGVvbWF0Y2gvdmlkZW9tYXRjaC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi52aWRlb2NvbnRhaW5lcntcbiAgICB3aWR0aDogMjAlO1xuICAgIGhlaWdodDogMjA7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuXG4ucGxheWxpc3R7XG4gICAgd2lkdGg6IDIwJTtcbiAgICBoZWlnaHQ6IDIwJTtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH0iLCIudmlkZW9jb250YWluZXIge1xuICB3aWR0aDogMjAlO1xuICBoZWlnaHQ6IDIwO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5cbi5wbGF5bGlzdCB7XG4gIHdpZHRoOiAyMCU7XG4gIGhlaWdodDogMjAlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59Il19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/videomatch/videomatch.component.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/videomatch/videomatch.component.ts ***!
+    \****************************************************/
+
+  /*! exports provided: VideomatchComponent */
+
+  /***/
+  function srcAppVideomatchVideomatchComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "VideomatchComponent", function () {
+      return VideomatchComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    var VideomatchComponent =
+    /*#__PURE__*/
+    function () {
+      function VideomatchComponent(http) {
+        this.http = http;
+        this.vidNames = [];
+        this.playlist = [{
+          title: 'Pale Blue Dot',
+          src: 'http://static.videogular.com/assets/videos/videogular.mp4',
+          type: 'video/mp4'
+        }];
+      }
+
+      var _proto4 = VideomatchComponent.prototype;
+
+      _proto4.ngOnInit = function ngOnInit() {
+        // load file list
+        this.loadList();
+      };
+
+      _proto4.getSimilarity = function getSimilarity(fileName) {
+        var _this7 = this;
+
+        this.playlist = [];
+        this.http.get('match_video/' + fileName).subscribe(function (res) {
+          var data = res['files'];
+
+          for (var i = 0; i < data.length; i++) {
+            _this7.playlist.push({
+              title: 'Match ' + i,
+              src: 'video/' + data[i]['file_name'],
+              type: 'video/mp4'
+            });
+          }
+        });
+      };
+
+      _proto4.loadList = function loadList() {
+        var _this8 = this;
+
+        this.vidNames = [];
+        this.http.get('video').subscribe(function (res) {
+          var data = res['files'];
+
+          for (var i = 0; i < data.length; i++) {
+            _this8.vidNames.push(data[i]['file_name']);
+          }
+        }, function (err) {
+          console.log(err);
+        });
+      };
+
+      _proto4.select = function select(fileName) {
+        this.getSimilarity(fileName);
+      };
+
+      return VideomatchComponent;
+    }();
+
+    VideomatchComponent.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    VideomatchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-videomatch',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./videomatch.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/videomatch/videomatch.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./videomatch.component.scss */
+      "./src/app/videomatch/videomatch.component.scss")).default]
+    })], VideomatchComponent);
     /***/
   },
 

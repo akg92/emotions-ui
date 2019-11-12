@@ -8,15 +8,27 @@ import {WebcamModule} from 'ngx-webcam';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectComponent } from './select/select.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { VideomatchComponent } from './videomatch/videomatch.component';
+import { VgCoreModule } from 'videogular2/compiled/core';
+import { VgControlsModule } from 'videogular2/compiled/controls';
+import { VgOverlayPlayModule } from 'videogular2/compiled/overlay-play';
+import { VgBufferingModule } from 'videogular2/compiled/buffering';
+
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
     MatchComponent,
-    SelectComponent
+    SelectComponent,
+    VideomatchComponent
   ],
   imports: [
     BrowserModule,
+    BrowserModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     AppRoutingModule,
     WebcamModule,
     HttpClientModule,

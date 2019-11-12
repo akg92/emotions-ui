@@ -18,6 +18,7 @@ from django.urls import path
 from capture.template.upload import FileUpload
 from capture.template.match import Match
 from capture.template.select import Select,get_file
+from capture.template.video_match import get_vid_file, list_vid_files,get_similar_vid
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/', FileUpload.as_view() ),
@@ -25,8 +26,9 @@ urlpatterns = [
     path('match/<str:file_name>', Match.as_view()),
     path('select/', Select.as_view()),
     path('select/<str:file_name>', Select.as_view()),
-    path('getcut/<str:file_name>', get_file)
-
-
+    path('getcut/<str:file_name>', get_file),
+    path('video/',list_vid_files ),
+    path('video/<str:file_name>', get_vid_file),
+    path('match_video/<str:file_name>', get_similar_vid),
 
 ]

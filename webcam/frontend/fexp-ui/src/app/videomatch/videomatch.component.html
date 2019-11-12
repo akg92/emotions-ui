@@ -1,0 +1,58 @@
+<div>
+
+    <ul>
+        <li *ngFor ="let vidName of vidNames"> <a (click) = "selct(vidName)">{{vidName}}</a></li>
+    </ul>
+
+</div>
+<div class = "playlist">
+
+    <vg-player *ngFor="let video of playlist" class="video-container">
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+
+        <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+
+        <vg-controls>
+            <vg-play-pause></vg-play-pause>
+            <vg-playback-button></vg-playback-button>
+
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+            <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+            <vg-track-selector></vg-track-selector>
+            <vg-mute></vg-mute>
+            <vg-volume></vg-volume>
+
+            <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+
+        <video #mediaOne [vgMedia]="mediaOne" preload="auto" crossorigin>
+            <source [src]="video.src" [type]="video.type">
+            <!-- <track kind="subtitles" label="English" src="assets/subs/pale-blue-dot.vtt" srclang="en" default> -->
+            <!-- <track kind="subtitles" label="Español" src="assets/subs/pale-blue-dot-es.vtt" srclang="es"> -->
+        </video>
+        <ul>
+            <!-- <li *ngFor="let item of playlist; let $index = index"
+        (click)="onClickPlaylistItem(item, $index)"
+        [class.selected]="item === currentItem">
+        {{ item.title }}
+    </li> -->
+        </ul>
+    </vg-player>
+
+</div>
+<!-- <ul>
+    <li *ngFor="let item of playlist; let $index = index"
+        (click)="onClickPlaylistItem(item, $index)"
+        [class.selected]="item === currentItem">
+        {{ item.title }}
+    </li>
+ </ul> -->

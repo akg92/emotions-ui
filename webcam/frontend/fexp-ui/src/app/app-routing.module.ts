@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UploadComponent } from './upload/upload.component';
 import { MatchComponent } from './match/match.component';
 import { SelectComponent } from './select/select.component';
+import { VideomatchComponent } from './videomatch/videomatch.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'select',
     component: SelectComponent
+  },
+  {
+    path: 'matchVid',
+    component: VideomatchComponent
   }
 ];
 

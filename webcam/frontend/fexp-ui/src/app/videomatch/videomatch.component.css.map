@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,EAAE;EACV,OAAO,EAAE,YAAY;CACxB",
+    "sources": [
+        "videomatch.component.scss"
+    ],
+    "names": [],
+    "file": "videomatch.component.css"
+}

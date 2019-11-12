@@ -1,0 +1,10 @@
+.videocontainer {
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+}
+.playlist{
+  width: 20%;
+  height: 20%;
+}
+/*# sourceMappingURL=videomatch.component.css.map */
