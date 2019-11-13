@@ -859,7 +859,9 @@ let VideomatchComponent = class VideomatchComponent {
     getSimilarity(fileName) {
         this.playlist = [];
         this.http.get('match_video/' + fileName).subscribe((res => {
-            const data = res['files'];
+            console.log(res);
+            console.log(res['files']);
+            let data = res['files'];
             for (let i = 0; i < data.length; i++) {
                 this.playlist.push(({
                     title: 'Match ' + i,

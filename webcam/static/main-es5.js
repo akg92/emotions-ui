@@ -1570,6 +1570,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.playlist = [];
         this.http.get('match_video/' + fileName).subscribe(function (res) {
+          console.log(res);
+          console.log(res['files']);
           var data = res['files'];
 
           for (var i = 0; i < data.length; i++) {
