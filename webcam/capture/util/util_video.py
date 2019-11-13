@@ -184,7 +184,7 @@ def process_main():
         os.path.abspath('./data_s'))
     os.system(cmd)
 
-    calculate_avg_distance(os.environ(os.environ['S_SIM_CSV']))
+    calculate_avg_distance(os.environ['S_SIM_CSV'])
     #remove_common_people()
 
 """
