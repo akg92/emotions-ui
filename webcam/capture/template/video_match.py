@@ -81,7 +81,7 @@ def get_similar_vid(request, file_name):
     global all_mapping
     ## get dictionary
     if not all_mapping:
-        all_mapping = read_mappings(file_name)
+        all_mapping = read_mappings()
 
     ## Add self first.
     mappings = [ {
