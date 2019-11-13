@@ -34,7 +34,7 @@ def list_vid_files(request):
     return HttpResponse(return_result, content_type = 'application/json')
 
 
-from util.util_video import get_all_mapping
+from capture.util.util_video import get_all_mapping
 
 all_mapping  = None
 """
