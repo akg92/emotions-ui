@@ -117,9 +117,13 @@ def get_all_mapping(sim_file_name, out_dim = 20):
     print("Similar file created")
 
     print("Reading Similar file"+ sim_file_name)
+    index = 0 
     with open(sim_file_name, 'r') as f:
         reader =  csv.reader(f)
         for row in reader:
+            index += 1
+            if index == 1:
+                continue
             video_file, frame_index = get_video_file_name_from_img(row[0])
             if video_file not in mapping:
                 mapping[video_file] = []
