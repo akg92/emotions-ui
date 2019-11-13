@@ -77,7 +77,7 @@ get video file from image
 def get_video_file_name_from_img(file):
     props = file.split("_")
     frame_id = int(props[0])
-    file_prefix = props[1]
+    file_prefix = props[2]
     return file_prefix, frame_id
         
 
@@ -105,12 +105,12 @@ import numpy as np
 """
 Populate the 2d distance
 """
-def get_all_mapping(out_dim = 20):
+def get_all_mapping(sim_file_name, out_dim = 20):
 
     mapping = {}
-    sim_file_name = os.environ['S_MAPPING_CSV']
+    #sim_file_name = os.environ['S_MAPPING_CSV']
     ## sleep till the command execute
-    while(not os.path.exists(os.environ['S_MAPPING_CSV'])):
+    while(not os.path.exists(sim_file_name)):
         print("Wait for similar create")
         time.sleep(5)
     print("Similar file created")
@@ -139,7 +139,7 @@ from scipy.spatial import distance_matrix
 """
  Order the files with the emotions
 """
-def calculate_avg_distance(out_file_name):
+def calculate_avg_distance(in_file_name, out_file_name):
     metrics = get_all_mapping()
     metrics_names = list(metrics.key())
     size = len(metrics_names)
@@ -186,7 +186,7 @@ def process_main():
         os.path.abspath('./data_s'))
     os.system(cmd)
 
-    calculate_avg_distance(os.environ['S_SIM_CSV'])
+    calculate_avg_distance(os.environ['S_SIM_CSV'], os.environ['S_MAPPING_CSV'])
     #remove_common_people()
 
 """
