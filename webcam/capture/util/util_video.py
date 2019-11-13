@@ -79,6 +79,7 @@ def get_video_file_name_from_img(file):
     props = file.split("_")
     frame_id = int(props[1])
     file_prefix = props[2]
+    file_prefix = file_prefix[:file_prefix.index('.')]
     return file_prefix, frame_id
         
 
@@ -165,11 +166,14 @@ def calculate_avg_distance(in_file_name, out_file_name):
         ordered similarity
     """
     result = []
+    ## video file extension
+    file_extension = '.webm'
     for i in range(size):
-        temp_list = [metrics_names[i]] ## to store the names
+        ## file extension should be add
+        temp_list = [metrics_names[i] + file_extension] ## to store the names
         
         for j in range(size):
-            temp_list.append(metrics_names[order[i][j]]) ## index is nothing but the order in the sorted array.
+            temp_list.append(metrics_names[order[i][j]] + file_extension) ## index is nothing but the order in the sorted array.
         
         result.append(temp_list)
 

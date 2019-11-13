@@ -11,6 +11,21 @@ import csv
 from capture.util import util
 from django.http import HttpResponse
 
+
+file_extension = 'webm'
+"""
+
+Add extension
+
+Returns:
+    [type] -- return string
+"""
+def get_full_video_file(file_name):
+    return file_name + '.'+ file_extension
+
+
+
+
 """
  Get specific video file
 """
