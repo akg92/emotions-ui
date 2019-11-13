@@ -111,7 +111,9 @@ def get_all_mapping(out_dim = 20):
     sim_file_name = os.environ['S_MAPPING_CSV']
     ## sleep till the command execute
     while(not os.path.exists(os.environ['S_MAPPING_CSV'])):
-        time.sleep(10)
+        print("Wait for similar create")
+        time.sleep(5)
+    print("Similar file created")
 
     with open(sim_file_name, 'r') as f:
         reader =  csv.reader(f)
