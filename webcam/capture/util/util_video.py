@@ -75,6 +75,7 @@ def get_frames(out_folder, k = 2):
 get video file from image
 """
 def get_video_file_name_from_img(file):
+    print('full video file name' + file)
     props = file.split("_")
     frame_id = int(props[0])
     file_prefix = props[2]
@@ -115,6 +116,7 @@ def get_all_mapping(sim_file_name, out_dim = 20):
         time.sleep(5)
     print("Similar file created")
 
+    print("Reading Similar file"+ sim_file_name)
     with open(sim_file_name, 'r') as f:
         reader =  csv.reader(f)
         for row in reader:
@@ -141,6 +143,7 @@ from scipy.spatial import distance_matrix
 """
 def calculate_avg_distance(in_file_name, out_file_name):
     metrics = get_all_mapping(in_file_name)
+    print("Got all mapping")
     metrics_names = list(metrics.key())
     size = len(metrics_names)
     k_avgs = np.zeros((size, size))
