@@ -177,7 +177,7 @@ def process_main():
     cut_images(os.environ['S_ALL_FOLDER'], os.environ['S_CUT_FOLDER'])
 
 
-    shutil.rmtree(os.environ['S_STORE_DIR'],ignore_errors = True)
+    #shutil.rmtree(os.environ['S_STORE_DIR'],ignore_errors = True)
     #os.mkdir(os.environ['STORE_DIR'])
     #shutil.copytree(sim_folder, os.environ['S_STORE_DIR'])
     cmd = os.environ['S_CMD_EXE'].format( os.path.abspath(os.environ['S_STORE_DIR']),
