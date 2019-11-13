@@ -110,7 +110,7 @@ def get_all_mapping(out_dim = 20):
     mapping = {}
     sim_file_name = os.environ['S_MAPPING_CSV']
     ## sleep till the command execute
-    while(os.path.exists(os.environ['S_MAPPING_CSV'])):
+    while(not os.path.exists(os.environ['S_MAPPING_CSV'])):
         time.sleep(10)
 
     with open(sim_file_name, 'r') as f:
