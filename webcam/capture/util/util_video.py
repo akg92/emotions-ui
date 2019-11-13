@@ -169,7 +169,7 @@ def calculate_avg_distance(in_file_name, out_file_name):
         temp_list = [metrics_names[i]] ## to store the names
         
         for j in range(size):
-            temp_list.append(metrics_names[k_avgs[i][j]]) ## index is nothing but the order in the sorted array.
+            temp_list.append(metrics_names[order[i][j]]) ## index is nothing but the order in the sorted array.
         
         result.append(temp_list)
 
