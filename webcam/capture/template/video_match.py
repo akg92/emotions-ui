@@ -31,7 +31,7 @@ def get_full_video_file(file_name):
 """
 def get_vid_file(request, file_name):
     video_folder = os.environ['S_VIDEO_FOLDER']
-    file_name = os.path.join(os.environ[''], file_name)
+    file_name = os.path.join(video_folder, file_name)
     with open(file_name,'rb') as f:
         return HttpResponse(f.read(), content_type="video/mp4")
 
