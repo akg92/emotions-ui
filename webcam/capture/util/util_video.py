@@ -140,7 +140,7 @@ from scipy.spatial import distance_matrix
  Order the files with the emotions
 """
 def calculate_avg_distance(in_file_name, out_file_name):
-    metrics = get_all_mapping()
+    metrics = get_all_mapping(in_file_name)
     metrics_names = list(metrics.key())
     size = len(metrics_names)
     k_avgs = np.zeros((size, size))
