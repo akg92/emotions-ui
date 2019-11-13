@@ -52,9 +52,28 @@ def list_vid_files(request):
 from capture.util.util_video import get_all_mapping
 
 all_mapping  = None
+import os
+import csv
 """
 
+Return mappings. 
 
+Returns:
+    [type] -- [description]
+"""
+def read_mappings():
+    mappings = {}
+    mapping_file = os.environ['S_MAPPING_CSV']
+    while not os.path.exists(mapping_file):
+        print("Mapping file not exist")
+    with open(mapping_file) as f:
+        reader = csv.reader(f)
+
+        for row in reader:
+            mappings[row[0]] = row[1:]
+
+    return mappings
+"""
 Returns:
     [type] -- similar video file list
 """
@@ -62,7 +81,7 @@ def get_similar_vid(request, file_name):
     global all_mapping
     ## get dictionary
     if not all_mapping:
-        all_mapping = get_all_mapping(file_name)
+        all_mapping = read_mappings(file_name)
 
     ## Add self first.
     mappings = [ {
