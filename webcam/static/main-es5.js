@@ -1588,6 +1588,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.vidNames = [];
         this.http.get('video').subscribe(function (res) {
           var data = res['files'];
+          console.log(data);
 
           for (var i = 0; i < data.length; i++) {
             _this8.vidNames.push(data[i]['file_name']);

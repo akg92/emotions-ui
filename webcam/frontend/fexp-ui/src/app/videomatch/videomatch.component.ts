@@ -52,10 +52,11 @@ export class VideomatchComponent implements OnInit {
   }
 
   public loadList() {
-    this.vidNames = []
+    this.vidNames = [];
     this.http.get('video').subscribe(
       (res => {
         let data = res['files'];
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
           this.vidNames.push(data[i]['file_name'] as string);
         }
