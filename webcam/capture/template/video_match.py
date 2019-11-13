@@ -96,7 +96,7 @@ def get_similar_vid(request, file_name):
 
     
     return_result = json.dumps({'files':  mappings})
-    return HttpResponse(json.dumps(return_result, content_type = 'application/json'))
+    return HttpResponse(json.dumps(return_result), content_type = 'application/json')
 
 
     
