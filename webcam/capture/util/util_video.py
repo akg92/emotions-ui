@@ -149,7 +149,7 @@ from scipy.spatial import distance_matrix
 def calculate_avg_distance(in_file_name, out_file_name):
     metrics = get_all_mapping(in_file_name)
     print("Got all mapping")
-    metrics_names = list(metrics.key())
+    metrics_names = list(metrics.keys())
     size = len(metrics_names)
     k_avgs = np.zeros((size, size))
     for i in range(len(metrics_names)):
