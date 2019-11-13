@@ -77,7 +77,7 @@ get video file from image
 def get_video_file_name_from_img(file):
     print('full video file name' + file)
     props = file.split("_")
-    frame_id = int(props[0])
+    frame_id = int(props[1])
     file_prefix = props[2]
     return file_prefix, frame_id
         
@@ -125,9 +125,10 @@ def get_all_mapping(sim_file_name, out_dim = 20):
             if index == 1:
                 continue
             video_file, frame_index = get_video_file_name_from_img(row[0])
+            print('frame_index {}; video_file {}'.format(frame_index, video_file))
             if video_file not in mapping:
                 mapping[video_file] = []
-             
+            
             mapping[video_file] = mapping[video_file].append( (frame_index, row[1:]))
     """
       sort by frame index.
