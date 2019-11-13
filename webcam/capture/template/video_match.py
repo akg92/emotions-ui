@@ -59,6 +59,7 @@ Returns:
     [type] -- similar video file list
 """
 def get_similar_vid(request, file_name):
+    global all_mapping
     ## get dictionary
     if not all_mapping:
         all_mapping = get_all_mapping()
