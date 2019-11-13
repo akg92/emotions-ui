@@ -129,7 +129,7 @@ def get_all_mapping(sim_file_name, out_dim = 20):
             if video_file not in mapping:
                 mapping[video_file] = []
             
-            mapping[video_file] = mapping[video_file].append( (frame_index, row[1:]))
+            mapping[video_file].append( (frame_index, row[1:]))
     """
       sort by frame index.
       convert to into 2d array.
