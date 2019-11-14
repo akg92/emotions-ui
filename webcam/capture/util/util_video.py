@@ -71,7 +71,7 @@ def get_frames(out_folder, k = 5):
         video_file = os.path.join(video_folder, file)
         video_file_prefix = os.path.splitext(file)[0]
         cap = cv2.VideoCapture(video_file)
-        frame_rate = cap.get(cv2.CV_CAP_PROP_FPS)/k
+        frame_rate = cap.get(cv2.CAP_PROP_FPS)/k
 
         while(cap.isOpened()):
 
