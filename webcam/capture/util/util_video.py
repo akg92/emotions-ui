@@ -27,7 +27,7 @@ import math
 def renameFiles(folder):
 
     for file in os.listdir(folder):
-        if file.index('_') >= 0:
+        if "_" in file:
             file_path = os.path.join(folder, file)
             file_path_new = os.path.join(folder, file.replace("_", ""))
             os.rename(file_path, file_path_new) 
