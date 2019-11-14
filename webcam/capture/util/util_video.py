@@ -60,9 +60,10 @@ def cut_images(in_folder, out_folder):
 """
 def get_frames(out_folder, k = 2):
     if os.path.exists(out_folder):
-        return 
-        #shutil.rmtree(out_folder, ignore_errors= True)
-    os.mkdir(out_folder)    
+        #pass 
+        shutil.rmtree(out_folder, ignore_errors= True)
+    else:
+        os.mkdir(out_folder)    
     video_folder = os.environ['S_VIDEO_FOLDER']
     
     for file in os.listdir(video_folder):
