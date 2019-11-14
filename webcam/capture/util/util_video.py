@@ -39,6 +39,7 @@ def cut_images(in_folder, out_folder):
         return
     ## create frames from video
     renameFiles(os.environ['S_VIDEO_FOLDER'])
+    print("infolder: "+ in_folder)
     get_frames(in_folder)
     os.mkdir(out_folder)
     for file in os.listdir(in_folder):
