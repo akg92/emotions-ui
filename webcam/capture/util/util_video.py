@@ -58,7 +58,7 @@ def cut_images(in_folder, out_folder):
 """
     Get frames.
 """
-def get_frames(out_folder, k = 2):
+def get_frames(out_folder, k = 5):
     if os.path.exists(out_folder):
         #pass 
         shutil.rmtree(out_folder, ignore_errors= True)
@@ -71,7 +71,7 @@ def get_frames(out_folder, k = 2):
         video_file = os.path.join(video_folder, file)
         video_file_prefix = os.path.splitext(file)[0]
         cap = cv2.VideoCapture(video_file)
-        frame_rate = cap.get(cv2.cv.CV_CAP_PROP_FPS)/k
+        frame_rate = cap.get(cv2.CV_CAP_PROP_FPS)/k
 
         while(cap.isOpened()):
 
