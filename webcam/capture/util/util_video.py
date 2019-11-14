@@ -20,7 +20,17 @@ import shutil
 import sys
 import math
 
+"""
+    Rename files with underscore
+"""
 
+def renameFiles(folder):
+
+    for file in os.listdir(folder):
+        if file.index('_') >= 0:
+            file_path = os.path.join(folder, file)
+            file_path_new = os.path.join(folder, file.replace("_", ""))
+            os.rename(file_path, file_path_new) 
 
 def cut_images(in_folder, out_folder):
     print('{}:{}'.format(in_folder, out_folder))
@@ -28,6 +38,7 @@ def cut_images(in_folder, out_folder):
         #shutil.rmtree(out_folder)
         return
     ## create frames from video
+    renameFiles(in_folder)
     get_frames(in_folder)
     os.mkdir(out_folder)
     for file in os.listdir(in_folder):
@@ -167,7 +178,7 @@ def calculate_avg_distance(in_file_name, out_file_name):
     """
     result = []
     ## video file extension
-    file_extension = '.webm'
+    file_extension = os.environ['S_EXT']
     for i in range(size):
         ## file extension should be add
         temp_list = [metrics_names[i] + file_extension] ## to store the names
