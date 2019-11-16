@@ -77,7 +77,7 @@ def read_mappings():
 Returns:
     [type] -- similar video file list
 """
-def get_similar_vid(request, file_name):
+def get_similar_vid(request, file_name, size = 3):
     global all_mapping
     ## get dictionary
     if not all_mapping:
@@ -94,7 +94,11 @@ def get_similar_vid(request, file_name):
         for m in all_mapping[file_name]:
             mappings.append({'file_name': m})
 
-    
+    ## slice incase of max_size
+    if(len(mappings) > 2 * size):
+        mappings = mappings[:size] + mappings[-size:]
+        
+
     return_result = json.dumps({'files':  mappings})
     return HttpResponse(return_result, content_type = 'application/json')
 
