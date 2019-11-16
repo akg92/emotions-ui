@@ -156,7 +156,7 @@ def get_all_mapping(sim_file_name, out_dim = 20):
     return mapping
     #np.array([float(x) for x in row[1:]]).reshape((-1,out_dim))
 from scipy.spatial import distance_matrix
-
+from scipy.spatial.distance import cosine 
 """
  Order the files with the emotions
 """
@@ -166,11 +166,30 @@ def calculate_avg_distance(in_file_name, out_file_name):
     metrics_names = list(metrics.keys())
     size = len(metrics_names)
     k_avgs = np.zeros((size, size))
+
+    """
+        Average distance all pair
+    """
+    # for i in range(len(metrics_names)):
+
+    #     for j in range(i + 1,len(metrics_names)):
+    #         k_avg = np.mean(distance_matrix(metrics[metrics_names[i]], metrics[metrics_names[j]] ))
+    #         k_avgs[i][j] = k_avg
+
+    """
+        Mean as signature
+    """
+    avg_matrix = []
+    for i in range(len(metrics_names)):
+        avg_matrix.append(np.mean(metrics[metrics_names[i]], axis = 0))
+    
+    ## cosine distance
     for i in range(len(metrics_names)):
 
         for j in range(i + 1,len(metrics_names)):
-            k_avg = np.mean(distance_matrix(metrics[metrics_names[i]], metrics[metrics_names[j]] ))
+            k_avg = cosine(avg_matrix[i], avg_matrix[j])
             k_avgs[i][j] = k_avg
+
 
 
     order = np.argsort(k_avgs)
@@ -207,9 +226,12 @@ def process_main():
     #shutil.rmtree(os.environ['S_STORE_DIR'],ignore_errors = True)
     #os.mkdir(os.environ['STORE_DIR'])
     #shutil.copytree(sim_folder, os.environ['S_STORE_DIR'])
-    cmd = os.environ['S_CMD_EXE'].format( os.path.abspath(os.environ['S_CUT_FOLDER']),
-        os.path.abspath('./data_s'))
-    os.system(cmd)
+    
+    ## only execute if the csv doesn't exist
+    if not os.path.exists(os.environ['S_SIM_CSV']):
+        cmd = os.environ['S_CMD_EXE'].format( os.path.abspath(os.environ['S_CUT_FOLDER']),
+            os.path.abspath('./data_s'))
+        os.system(cmd)
 
     calculate_avg_distance(os.environ['S_SIM_CSV'], os.environ['S_MAPPING_CSV'])
     #remove_common_people()
