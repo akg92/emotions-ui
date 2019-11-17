@@ -152,8 +152,8 @@ def calculate_top_k_all(all_mapping):
             """
             top_k = calculate_top_k(mapping)
             for i in range(len(top_k)):
-                avg_sum_em[i] += top_k[0]
-                avg_sum_intensity[i] += top_k[1]
+                avg_sum_em[i] += top_k[i][0]
+                avg_sum_intensity[i] += top_k[i][1]
 
     tops = [1,5,10, -1]
     for i in range(avg_sum_em):
