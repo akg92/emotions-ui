@@ -35,12 +35,12 @@ def renameFiles(folder):
 def cut_images(in_folder, out_folder):
     print('{}:{}'.format(in_folder, out_folder))
     if(os.path.exists(out_folder)):
-        #shutil.rmtree(out_folder)
+        shutil.rmtree(out_folder)
         return
     ## create frames from video
     renameFiles(os.environ['S_VIDEO_FOLDER'])
     print("infolder: "+ in_folder)
-    get_frames(in_folder)
+    #get_frames(in_folder)
     os.mkdir(out_folder)
     print("Total  {}".format( len(os.listdir(in_folder))))
     for file in os.listdir(in_folder):
@@ -53,10 +53,11 @@ def cut_images(in_folder, out_folder):
             #print(face_location)
             cut_img = image[face_location[0]:face_location[2], face_location[3]:face_location[1]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
-            if os.path.exists(out_file_path):
-                print("Error: file exist {}".format(out_file_path))
+           
             #print('Processing file {}'.format(out_file_path))
             cv2.imwrite(out_file_path, cv2.cvtColor(cut_img, cv2.COLOR_RGB2BGR))
+            if not os.path.exists(out_file_path):
+                print("Error: file exist {}".format(out_file_path))
             i += 1
         if (i == 0):
             print('Processing file No face {}'.format(file))
