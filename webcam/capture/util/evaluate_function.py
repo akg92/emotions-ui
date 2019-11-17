@@ -131,7 +131,7 @@ def calculate_top_k(list_ele):
             match_intensity += 1
 
         if index in ks:
-            result.append( (match_em/index), (match_intensity/index) )
+            result.append( ((match_em/index), (match_intensity/index)) )
     
     result.append( (match_em/index, match_intensity/index))
  
