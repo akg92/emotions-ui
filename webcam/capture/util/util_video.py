@@ -42,8 +42,9 @@ def cut_images(in_folder, out_folder):
     print("infolder: "+ in_folder)
     get_frames(in_folder)
     os.mkdir(out_folder)
+    print("Total  {}".format( len(os.listdir(in_folder))))
     for file in os.listdir(in_folder):
-        print('Processing file {}'.format(file))
+        # print('Processing file {}'.format(file))
         in_file_path = os.path.join(in_folder, file)
         image = face_recognition.load_image_file(in_file_path)
         face_locations = face_recognition.face_locations(image)
@@ -52,9 +53,12 @@ def cut_images(in_folder, out_folder):
             print(face_location)
             cut_img = image[face_location[0]:face_location[2], face_location[3]:face_location[1]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
-            print('Processing file {}'.format(out_file_path))
+            #print('Processing file {}'.format(out_file_path))
             cv2.imwrite(out_file_path, cv2.cvtColor(cut_img, cv2.COLOR_RGB2BGR))
             i += 1
+        if (i == 0):
+            print('Processing file No face {}'.format(file))
+            
 """
     Get frames.
 """
