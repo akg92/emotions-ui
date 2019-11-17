@@ -96,7 +96,7 @@ def get_similar_vid(request, file_name, size = 3):
 
     ## slice incase of max_size
     if(len(mappings) > 2 * size):
-        mappings = mappings[:size] + mappings[-size:]
+        mappings = mappings[:size + 1] + mappings[-size:]
         
 
     return_result = json.dumps({'files':  mappings})

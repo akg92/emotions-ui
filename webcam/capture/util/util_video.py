@@ -167,6 +167,8 @@ def calculate_avg_distance(in_file_name, out_file_name):
     size = len(metrics_names)
     k_avgs = np.zeros((size, size))
 
+    ## variable hold the nature of similarity
+    reverse_match  = False
     """
         Average distance all pair
     """
@@ -180,6 +182,7 @@ def calculate_avg_distance(in_file_name, out_file_name):
         Mean as signature
     """
     avg_matrix = []
+    reverse_match = True
     for i in range(len(metrics_names)):
         avg_matrix.append(np.mean(metrics[metrics_names[i]], axis = 0))
     
@@ -202,11 +205,20 @@ def calculate_avg_distance(in_file_name, out_file_name):
     file_extension = os.environ['S_EXT']
     for i in range(size):
         ## file extension should be add
-        temp_list = [metrics_names[i] + file_extension] ## to store the names
+
+        cur_file  = metrics_names[i] + file_extension
+        temp_list = [] ## to store the names
         
+        if(not reverse_match):
+            temp_list.append(cur_file)
+
         for j in range(size):
-            temp_list.append(metrics_names[order[i][j]] + file_extension) ## index is nothing but the order in the sorted array.
-        
+            if( i  != j):
+                temp_list.append(metrics_names[order[i][j]] + file_extension) ## index is nothing but the order in the sorted array.
+        ## reverse if the match function is reverse
+        if(reverse_match):
+            temp_list.append(cur_file)
+            temp_list.reverse()
         result.append(temp_list)
 
     with open(out_file_name, 'w') as f:
