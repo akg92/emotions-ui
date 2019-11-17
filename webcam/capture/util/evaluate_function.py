@@ -95,7 +95,7 @@ def mean_distance_with_width(metrics_names, metrics, size):
 
         for j in range(i + 1,len(metrics_names)):
             k_avg = distance_matrix(metrics[metrics_names[i]], metrics[metrics_names[j]] )
-
+            print(k_avg.shape)
             min_val = 100000000000
             
             for row in range( 0, size - window + 1):
