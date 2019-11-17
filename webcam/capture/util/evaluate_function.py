@@ -89,7 +89,7 @@ def mean_distance_with_width(metrics_names, metrics, size):
         Average distance all pair with window
     """
 
-    window = 5
+    window = 3
     k_avgs = np.zeros((size, size))
     for i in range(len(metrics_names)):
 
