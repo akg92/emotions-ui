@@ -194,7 +194,7 @@ def calculate_avg_distance(in_file_name):
         """
         result = []
         ## video file extension
-        file_extension = os.environ['S_EXT']
+        file_extension = '.mp4'
         for i in range(size):
             ## file extension should be add
 
