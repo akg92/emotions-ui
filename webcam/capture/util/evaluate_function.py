@@ -160,7 +160,7 @@ def calculate_top_k_all(all_mapping):
         avg_sum_em[i] /= count
         avg_sum_intensity[i] /= count
 
-        print("Average top {}: emotions {} : intensity ".format(tops[i], avg_sum_em[i], 
+        print("Average top {}: emotions {} : intensity {} ".format(tops[i], avg_sum_em[i], 
             avg_sum_intensity[i]))
 
     return avg_sum_em, avg_sum_intensity
