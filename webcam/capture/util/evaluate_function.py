@@ -83,6 +83,34 @@ def mean_distance_all(metrics_names, metrics, size):
 
     return k_avgs
 
+
+def mean_distance_with_width(metrics_names, metrics, size):
+    """
+        Average distance all pair with window
+    """
+
+    window = 5
+    k_avgs = np.zeros((size, size))
+    for i in range(len(metrics_names)):
+
+        for j in range(i + 1,len(metrics_names)):
+            k_avg = distance_matrix(metrics[metrics_names[i]], metrics[metrics_names[j]] )
+
+            min_val = 100000000000
+            
+            for row in range( 0, size - window + 1):
+                for col  in range( 0 ,size - window + 1):
+                    cur_val = 0    
+                    for l in range(window):
+                        cur_val += k_avg[row+l][col+l]
+                    min_val = min(cur_val, min_val)
+
+
+            k_avgs[i][j] = min_val
+
+    return k_avgs
+
+
 def mean_distance_cosine(metrics_names, metrics, size):
 
     """
@@ -131,7 +159,7 @@ def calculate_top_k(list_ele):
             match_intensity += 1
 
         if index in ks:
-            print(' {} : {}'.format( (match_em/index),first))
+            #print(' {} : {}'.format( (match_em/index),first))
             result.append( ((match_em/index), (match_intensity/index)) )
     
     result.append( (match_em/index, match_intensity/index))
@@ -184,7 +212,7 @@ def calculate_avg_distance(in_file_name):
     """
 
     function_list =[ (avg_mean_l2, "average mean l2", False), (mean_distance_all, "mean distance all pair", False)
-        , ( mean_distance_cosine, "cosine mean", True)]    
+        , ( mean_distance_cosine, "cosine mean", True), (mean_distance_with_width, "window based similarity", False)]    
 
 
     for func, description, reverse_match in function_list:
