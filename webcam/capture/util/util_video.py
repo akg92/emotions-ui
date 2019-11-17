@@ -58,7 +58,7 @@ def cut_images(in_folder, out_folder):
 """
     Get frames.
 """
-def get_frames(out_folder, k = 5):
+def get_frames(out_folder, k = 10):
     if os.path.exists(out_folder):
         #pass 
         shutil.rmtree(out_folder, ignore_errors= True)
