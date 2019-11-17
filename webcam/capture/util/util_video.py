@@ -36,11 +36,11 @@ def cut_images(in_folder, out_folder):
     print('{}:{}'.format(in_folder, out_folder))
     if(os.path.exists(out_folder)):
         shutil.rmtree(out_folder)
-        return
+        #return
     ## create frames from video
     renameFiles(os.environ['S_VIDEO_FOLDER'])
     print("infolder: "+ in_folder)
-    #get_frames(in_folder)
+    get_frames(in_folder)
     os.mkdir(out_folder)
     print("Total  {}".format( len(os.listdir(in_folder))))
     for file in os.listdir(in_folder):
