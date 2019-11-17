@@ -156,7 +156,7 @@ def calculate_top_k_all(all_mapping):
                 avg_sum_intensity[i] += top_k[i][1]
 
     tops = [1,5,10, -1]
-    for i in range(avg_sum_em):
+    for i in range(len(avg_sum_em)):
         avg_sum_em[i] /= count
         avg_sum_intensity[i] /= count
 
