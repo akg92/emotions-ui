@@ -50,9 +50,11 @@ def cut_images(in_folder, out_folder):
         face_locations = face_recognition.face_locations(image)
         i  = 0
         for face_location in face_locations:
-            print(face_location)
+            #print(face_location)
             cut_img = image[face_location[0]:face_location[2], face_location[3]:face_location[1]]
             out_file_path = os.path.join(out_folder, str(i)+"_"+file)
+            if os.path.exists(out_file_path):
+                print("Error: file exist {}".format(out_file_path))
             #print('Processing file {}'.format(out_file_path))
             cv2.imwrite(out_file_path, cv2.cvtColor(cut_img, cv2.COLOR_RGB2BGR))
             i += 1
