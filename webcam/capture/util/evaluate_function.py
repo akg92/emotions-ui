@@ -139,8 +139,8 @@ def calculate_top_k(list_ele):
 def calculate_top_k_all(all_mapping):
 
     count = 0
-    avg_sum_em = [0 for in range(4)]
-    avg_sum_intensity = [0 for in range(4)]
+    avg_sum_em = [0 for i in range(4)]
+    avg_sum_intensity = [0 for i in range(4)]
 
     for mapping in all_mapping:
 
