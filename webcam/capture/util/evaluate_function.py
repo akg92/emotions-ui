@@ -45,7 +45,7 @@ def get_all_mapping(sim_file_name, out_dim = 20):
         mapping[key] = sorted(mapping[key], key = lambda x: x[0])
         mapping[key] = [ [float(i) for i in x[1]] for x in mapping[key]]
         mapping[key] = np.array( mapping[key])
-    
+    print(mapping)
     return mapping
 
 
