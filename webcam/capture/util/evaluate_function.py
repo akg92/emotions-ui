@@ -126,12 +126,12 @@ def calculate_top_k(list_ele):
         index += 1
         e, i = get_emotion_and_intensity(file)
         if e == emotion:
-            print(' {} : {}'.format(file, first))
             match_em += 1
         if i == intensity:
             match_intensity += 1
 
         if index in ks:
+            print(' {} : {}'.format( (match_em/index),first))
             result.append( ((match_em/index), (match_intensity/index)) )
     
     result.append( (match_em/index, match_intensity/index))
