@@ -40,7 +40,7 @@ def cut_images(in_folder, out_folder):
     ## create frames from video
     renameFiles(os.environ['S_VIDEO_FOLDER'])
     print("infolder: "+ in_folder)
-    get_frames(in_folder)
+    #get_frames(in_folder)
     os.mkdir(out_folder)
     print("Total  {}".format( len(os.listdir(in_folder))))
     for file in os.listdir(in_folder):
@@ -48,6 +48,8 @@ def cut_images(in_folder, out_folder):
         in_file_path = os.path.join(in_folder, file)
         image = face_recognition.load_image_file(in_file_path)
         face_locations = face_recognition.face_locations(image)
+        if(not face_locations):
+            continue
         i  = 0
         for face_location in face_locations:
             #print(face_location)
