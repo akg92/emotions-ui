@@ -216,6 +216,11 @@ def calculate_avg_distance(in_file_name):
 
         print("############RESULT {}###############".format(description))
         calculate_top_k_all(result)
+
+        for i in range(len(result)):
+            result[i].reverse()
+        print("############## Reversed #################")
+        calculate_top_k_all(result)
         print("##################### END #############################")
 
     return result 
