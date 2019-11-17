@@ -35,8 +35,8 @@ def renameFiles(folder):
 def cut_images(in_folder, out_folder):
     print('{}:{}'.format(in_folder, out_folder))
     if(os.path.exists(out_folder)):
-        shutil.rmtree(out_folder)
-        #return
+        #shutil.rmtree(out_folder)
+        return
     ## create frames from video
     renameFiles(os.environ['S_VIDEO_FOLDER'])
     print("infolder: "+ in_folder)

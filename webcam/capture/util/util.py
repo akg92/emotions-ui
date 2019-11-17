@@ -189,5 +189,6 @@ def find_similar(first_img):
     cut images
 """
 if __name__ == "__main__":
-    cut_images(os.environ['ALL_FOLDER'], os.environ['CUT_FOLDER'])
-    remove_common_people()
+    #cut_images(os.environ['ALL_FOLDER'], os.environ['CUT_FOLDER'])
+    #remove_common_people()
+    pass
