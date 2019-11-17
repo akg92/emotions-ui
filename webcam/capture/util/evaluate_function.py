@@ -188,7 +188,7 @@ def calculate_avg_distance(in_file_name):
     for func, description, reverse_match in function_list:
         k_avgs = func(metrics_names, metrics, size)
         order = np.argsort(k_avgs)
-        
+        print(order)
         """
             ordered similarity
         """
