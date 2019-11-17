@@ -45,7 +45,7 @@ def get_all_mapping(sim_file_name, out_dim = 20):
         mapping[key] = sorted(mapping[key], key = lambda x: x[0])
         mapping[key] = [ [float(i) for i in x[1]] for x in mapping[key]]
         mapping[key] = np.array( mapping[key])
-    print(mapping)
+    # print(mapping)
     return mapping
 
 
@@ -67,7 +67,7 @@ def avg_mean_l2(metrics_names, metrics, size):
             k_avg = np.linalg.norm(avg_matrix[i] - avg_matrix[j])
             k_avgs[i][j] = k_avg
 
-    return k_avg
+    return k_avgs
 
 
 def mean_distance_all(metrics_names, metrics, size):
@@ -88,6 +88,7 @@ def mean_distance_cosine(metrics_names, metrics, size):
     """
         Mean as signature
     """
+    k_avgs = np.zeros((size, size))
     avg_matrix = []
     #reverse_match = True
     for i in range(len(metrics_names)):
@@ -100,7 +101,7 @@ def mean_distance_cosine(metrics_names, metrics, size):
             k_avg = cosine(avg_matrix[i], avg_matrix[j])
             k_avgs[i][j] = k_avg
 
-    return k_avg
+    return k_avgs
 
 
 def get_emotion_and_intensity(file_name):
