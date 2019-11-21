@@ -183,32 +183,17 @@ def calculate_avg_distance(in_file_name, out_file_name):
     """
         Average distance all pair
     """
-    # for i in range(len(metrics_names)):
+    for i in range(len(metrics_names)):
 
-    #     for j in range(i + 1,len(metrics_names)):
-    #         k_avg = np.mean(distance_matrix(metrics[metrics_names[i]], metrics[metrics_names[j]] ))
-    #         k_avgs[i][j] = k_avg
-
-    # """
-    #     Mean as signature
-    # """
-    # avg_matrix = []
-    # reverse_match = True
-    # for i in range(len(metrics_names)):
-    #     avg_matrix.append(np.mean(metrics[metrics_names[i]], axis = 0))
-    
-    # ## cosine distance
-    # for i in range(len(metrics_names)):
-
-    #     for j in range(i + 1,len(metrics_names)):
-    #         k_avg = cosine(avg_matrix[i], avg_matrix[j])
-    #         k_avgs[i][j] = k_avg
+        for j in range(i + 1,len(metrics_names)):
+            k_avg = np.mean(distance_matrix(metrics[metrics_names[i]], metrics[metrics_names[j]] ))
+            k_avgs[i][j] = k_avg
 
     """
-        Avg distance distance
+        Mean as signature
     """
     avg_matrix = []
-    reverse_match = False
+    reverse_match = True
     for i in range(len(metrics_names)):
         avg_matrix.append(np.mean(metrics[metrics_names[i]], axis = 0))
     
@@ -216,8 +201,23 @@ def calculate_avg_distance(in_file_name, out_file_name):
     for i in range(len(metrics_names)):
 
         for j in range(i + 1,len(metrics_names)):
-            k_avg = np.linalg.norm(avg_matrix[i] - avg_matrix[j])
+            k_avg = cosine(avg_matrix[i], avg_matrix[j])
             k_avgs[i][j] = k_avg
+
+    """
+        Avg distance distance
+    """
+    # avg_matrix = []
+    # reverse_match = False
+    # for i in range(len(metrics_names)):
+    #     avg_matrix.append(np.mean(metrics[metrics_names[i]], axis = 0))
+    
+    # ## cosine distance
+    # for i in range(len(metrics_names)):
+
+    #     for j in range(i + 1,len(metrics_names)):
+    #         k_avg = np.linalg.norm(avg_matrix[i] - avg_matrix[j])
+    #         k_avgs[i][j] = k_avg
 
 
     order = np.argsort(k_avgs)
